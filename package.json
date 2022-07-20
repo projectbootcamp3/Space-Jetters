@@ -1,0 +1,22 @@
+{
+  "name": "space-jetters",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/projectbootcamp3/Space-Jetters.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/projectbootcamp3/Space-Jetters/issues"
+  },
+  "homepage": "https://github.com/projectbootcamp3/Space-Jetters#readme",
+  "devDependencies": {
+    "concurrently": "^7.3.0"
+  }
+}
