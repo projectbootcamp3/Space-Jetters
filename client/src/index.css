@@ -23,9 +23,10 @@ body {
 
 .sub-title{
   text-align: center;
-  padding-top: 25px;
-  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 100;
   font-size: 28px;
+  padding: 0 12px;
   font-family: 'Orbitron', sans-serif;
 }
 
@@ -36,14 +37,16 @@ body {
   align-items: center;
   padding: 14px 0;
   color: #fff;
-  background-color: rgb(44, 40, 40);
+  background-color: rgb(0, 0, 0);
 }
 
 .nav a{
-  padding-left: 17px;
+  padding-left: 19px;
   text-decoration: none;
   color: #333;
   color: #fff;
+  font-size: 17px;
+  letter-spacing: 1px;
 }
 
 .nav a:hover{
@@ -51,14 +54,214 @@ body {
 }
 
 .logo-container h1{
-  color: rgb(46, 113, 189);
+  color:aliceblue;
   font-family: 'Gruppo', cursive;
 }
 
+/*Home menu*/
+/*section-a*/
+.section-a-wrapper{
+  background: linear-gradient(to bottom, rgb(49, 207, 154), rgb(29, 211, 243));
+}
+.section-a{
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  height: 400px;
+}
 
+.subtitle-container{
+  display: flex;
+  padding-top: 35px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.text-container p{
+  font-weight: 600;
+  font-size: 23px;
+  word-spacing: 4px;
+  text-indent: 30px;
+  color: #333;
+  line-height: 1.4;
+  padding-bottom: 30px;
+}
+
+.highlight{
+  color: rgb(250, 250, 250);
+}
+
+.line{
+  width: 40px;
+  height: 2px;
+  background-color: #333;
+}
+.text-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 80%;
+}
+/*Btn primary starts here*/
+.btn-primary{
+
+  color: #333;
+  text-transform:uppercase;
+  font-family: 'Gruppo', cursive;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;;
+}
+
+
+/*main button styles*/
+.btn-primary{
+  font-size: 20px;
+  font-weight: bolder;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  position: relative;
+  padding: 6px 30px;
+  text-decoration: none;
+}
+
+.btn-primary:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  border-top: 1px white solid;
+  border-left: 1px white solid;
+  border-bottom: 6px black solid;
+  opacity: 1;
+  transition: all 0.6s 0.3s;
+}
+
+.btn-primary:after{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+   width: 50%;
+  height: 100%;
+  border-top: 1px white solid;
+  border-right: 1px white solid;
+  border-bottom: 6px black solid;
+  opacity: 1;
+  transition: all 0.6s 0.3s;
+}
+
+.btn-primary:hover:before{
+  transform: translateX(-50%);
+  opacity: 0;
+}
+
+.btn-primary:hover:after{
+  transform: translateX(50%);
+  opacity: 0;
+}
+
+
+.btn-span{
+  position: absolute;
+  top:0;
+  left: 50%;
+  background: white;
+  width: 1px;
+  height: 100px;
+  transform-origin: center;
+  transform: TranslateY(-100px);
+  z-index: 1;
+  transition: all 0.8s;
+  opacity: 0;
+}
+
+.text-container a:hover span{
+  opacity: 1;
+  transform: translateY(1px);
+  animation: hide 0.7s linear forwards;
+}
+
+
+@keyframes hide {
+    to {
+        opacity: 0;
+    }
+}
+
+/* section-b  Testimonials*/
+.section-b-wrapper{
+  background-color:rgb(0, 0, 0);
+  color: #fff;
+}
+
+.section-b .line{
+  background-color: #fff;;
+}
+
+.section-b{
+  margin: 0 auto;
+  width: 90%;
+  height: 700px;
+}
+#home-b .circle-box {
+  border-radius: 50%;
+  background: #333;
+  color: #fff;
+  width: 60%;
+  text-align: center;
+  position: relative;
+  transition: all 1s; 
+  text-align: center;
+  margin: 0 auto;
+}
+
+.circle-box-img{
+  width: 100%;
+  border-radius: 50%;
+  padding: 20px;
+}
+
+#home-b .process {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1.5rem;
+  text-align: center; 
+}
+
+.p-2{
+  padding-top: 20px;
+}
+  
+#home-b .process-step {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+    background: #15f7ff;
+    color: #fff;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    padding: 1rem;
+    transition: all 1s; 
+}
+
+.lead {
+font-size: 1.3rem;
+margin-bottom: 2rem;
+text-align: center;
+padding-top: 25px;
+}
+            
 /*Footer*/
 .footer {
-  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;

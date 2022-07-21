@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
+import heroImage from "../../assets/home-images/hero-image.jpg"
 
 const Header = () => {
     const logout = (event) => {
