@@ -1,0 +1,25 @@
+{
+  "name": "space-jetters",
+  "version": "1.0.0",
+  "description": "A space travel application.",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "build": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/projectbootcamp3/Space-Jetters.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/projectbootcamp3/Space-Jetters/issues"
+  },
+  "homepage": "https://github.com/projectbootcamp3/Space-Jetters#readme",
+  "devDependencies": {
+    "concurrently": "^7.3.0"
+  }
+}
