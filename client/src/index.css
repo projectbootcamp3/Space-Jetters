@@ -242,12 +242,13 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    font-size: 30px;
+    font-size: 28px;
     background: #15f7ff;
     color: #fff;
     border-radius: 50%;
     height: 60px;
     width: 60px;
+    color: #333;
     text-align: center;
     padding: 1rem;
     transition: all 1s; 
@@ -259,7 +260,30 @@ margin-bottom: 2rem;
 text-align: center;
 padding-top: 25px;
 }
-            
+
+
+/*Section C Steps*/
+.flex-items {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.flex-items h3{
+  padding-bottom: 15px;
+}
+
+.blueIcon{
+  color:rgb(29, 211, 243);
+  font-size: 35px;
+  padding-bottom: 10px;
+}
+
+
 /*Footer*/
 .footer {
   left: 0;

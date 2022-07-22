@@ -7,6 +7,11 @@ import testimonial2 from "../assets/testimonials/testimonial-2.jpg"
 import testimonial3 from "../assets/testimonials/testimonial-3.jpg"
 import testimonial4 from "../assets/testimonials/testimonial-4.jpg"
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar, faCalendar, faRocket } from "@fortawesome/free-solid-svg-icons";
+
+
+
 
 const Home = () => {
  
@@ -67,7 +72,7 @@ const loggedIn = Auth.loggedIn();
                     <div>
                         <div className="circle-box">
                         <img className=" fa-4x circle-box-img my-2" src={testimonial1}/>
-                        <div className="process-step">1</div>
+                        <div className="process-step"><FontAwesomeIcon icon={faStar} /></div>
                         </div>
                        
                         <h3 className="p-2">Leon Milles</h3>
@@ -81,7 +86,7 @@ const loggedIn = Auth.loggedIn();
                      <div>
                         <div className="circle-box">
                         <img className=" fa-4x circle-box-img my-2" src={testimonial2}/>
-                        <div className="process-step">2</div>
+                        <div className="process-step"><FontAwesomeIcon icon={faStar} /></div>
                         </div>
                        
                         <h3 className="p-2">Tayeon Rose</h3>
@@ -95,7 +100,7 @@ const loggedIn = Auth.loggedIn();
                      <div className="box">
                         <div className="circle-box">
                         <img className=" fa-4x circle-box-img my-2" src={testimonial3}/>
-                        <div className="process-step">3</div>
+                        <div className="process-step"><FontAwesomeIcon icon={faStar} /></div>
                         </div>
 
                        
@@ -110,7 +115,7 @@ const loggedIn = Auth.loggedIn();
                      <div>
                         <div className="circle-box">
                         <img className=" fa-4x circle-box-img my-2" src={testimonial4}/>
-                        <div className="process-step">4</div>
+                        <div className="process-step"><FontAwesomeIcon icon={faStar} /></div>
                         </div>
                        
                         <h3 className="p-2">Michael Phillip</h3>
@@ -121,10 +126,51 @@ const loggedIn = Auth.loggedIn();
                     </div>
                 </div>
             </div>
-    </div>
-        
+    </div>  
       </section>
      </div>
+
+
+     {/* Section C Services */}
+     <section id="section-c" className="icons bg-light">
+     <div className="subtitle-container">
+            <div className="line"></div>
+            <h2 className="sub-title">Steps</h2>
+            <div className="line"></div>
+        </div>
+        <div className="flex-items">
+          <div>
+          <div className="blueIcon"><FontAwesomeIcon icon={faCalendar} /></div>
+            <div>
+              <h3>Choose the date</h3>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Tempore, iusto!
+              </p>
+            </div>
+          </div>
+          <div>
+            <div className="blueIcon"> <i class="fa-solid fa-chalkboard-user"></i></div>
+            <div>
+              <h3>Prepare and Study</h3>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Tempore, iusto!
+              </p>
+            </div>
+          </div>
+          <div>
+          <div className="blueIcon"><FontAwesomeIcon icon={faRocket} /></div>
+            <div>
+              <h3>Launch</h3>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Tempore, iusto!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 };
