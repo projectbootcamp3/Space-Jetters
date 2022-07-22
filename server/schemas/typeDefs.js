@@ -7,6 +7,19 @@ const typeDefs = gql`
     email: String
   }
 
+  type Rocket {
+    _id: ID
+    name: String
+    origin: String
+    description: String
+    imageUrl: String
+  }
+
+  type Mission {
+    _id: ID
+    name: String
+  }
+
   type Auth {
     token: ID!
     user: User
