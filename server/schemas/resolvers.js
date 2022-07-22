@@ -43,9 +43,9 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    // missions: async () => {
-    //   return Mission.find().sort({ createdAt: -1 });
-    // }
+    missions: async () => {
+      return Mission.find().sort({ createdAt: -1 });
+    }
   }
 };
 

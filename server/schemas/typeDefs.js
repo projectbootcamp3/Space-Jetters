@@ -17,7 +17,9 @@ const typeDefs = gql`
 
   type Mission {
     _id: ID
-    name: String
+    destination: String
+    departureDate: String
+    tripDuration: String
   }
 
   type Auth {
@@ -34,6 +36,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    missions(destination: String!, password: String!): [Mission]
   }
 `;
 
