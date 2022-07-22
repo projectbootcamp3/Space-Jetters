@@ -37,7 +37,7 @@ body {
   align-items: center;
   padding: 14px 0;
   color: #fff;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(4, 4, 4);
 }
 
 .nav a{
@@ -59,9 +59,57 @@ body {
 }
 
 /*Home menu*/
+
+/* Hero*/
+.main-section{
+  font-family: 'Gruppo', cursive !important;
+  color: rgb(152, 146, 146);
+  width: 35%;
+  padding-top: 15%;
+  padding-left: 45px;
+  line-height: 1.5;
+}
+
+
+.main-section p{
+  font-family: 'Courier New', Courier, monospace;
+  padding-top: 19px;
+  font-size: 15px;
+  padding-bottom: 35px;
+}
+
+.btn-secondary{
+  padding: 5px 30px;
+  color: black;
+  font-family: 'Gruppo', cursive;
+  background: linear-gradient(to bottom, rgb(49, 207, 154), rgb(29, 211, 243));
+  border-radius: 20px;
+  text-align: center;
+}
+
+.btn-secondary:hover{
+  background: linear-gradient(to bottom, rgb(89, 200, 163),
+  rgb(101, 212, 231));
+}
+
+.btn-3{
+  font-family: 'Gruppo', cursive;
+  padding: 5px 30px;
+  border: 1px #fff solid;
+  border-radius: 20px;
+  color: #fff;
+  margin-left: 20px;
+}
+
+.btn-3:hover{
+  background-color: #fff;
+  color: black;
+  transition: all 0.5s;
+}
+
 /*section-a*/
 .section-a-wrapper{
-  background: linear-gradient(to bottom, rgb(49, 207, 154), rgb(29, 211, 243));
+  background: linear-gradient(to bottom, rgb(49, 207, 154), rgb(29, 211, 243))
 }
 .section-a{
   width: 60%;

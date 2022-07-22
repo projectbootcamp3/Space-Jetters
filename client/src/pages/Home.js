@@ -1,6 +1,6 @@
 import React from "react";
 import Auth from "../utils/auth";
-import heroImage from "../assets/home-images/hero-image.jpg"
+import heroImage from "../assets/home-images/space-station.jpg"
 
 import testimonial1 from "../assets/testimonials/testimonial-1.jpg"
 import testimonial2 from "../assets/testimonials/testimonial-2.jpg"
@@ -28,10 +28,24 @@ const loggedIn = Auth.loggedIn();
         }}>
         {loggedIn && (
           <section className="section-hero">
-          <h2 className="sub-title">Home page</h2>
           </section>
         )}
+         {/* MAIN SECTION WITH HERO IMAGE*/ }
+     <div className="main-section">
+        <h1>The <span className="highlight"> best experience</span> in your life will come true with SpaceJetters!</h1>
+        <article>
+            <p>
+                SpaceJetters is a travel agency company that allows the customers to travel outside Earth to other places in the Solar System.
+            </p>
+        </article>
+        <div>
+            <a href="#" className="btn-secondary"> explore</a>
+            <a href="#" className="btn-3"> about us</a>
+        </div>
+     </div>
       </div>
+     
+
 
      <div className="section-a-wrapper">
      <section className="section section-a">
