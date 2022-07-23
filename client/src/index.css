@@ -420,3 +420,62 @@ form{
   margin: 0 auto;
   width: 20%;
 }
+
+/* -----------DESTINATIONS PAGE------------*/
+.destinations-wrapper{
+  background-color: rgb(0, 0, 0)
+}
+.destinations-intro{
+  height: 50vh;
+  width: 100%;
+  background: linear-gradient(to bottom, rgb(4, 4, 4), rgb(3, 3, 22));
+  color: #fff;
+  text-align: center;
+  padding-top: 100px;
+  line-height: 1.5;;
+}
+.destinations {
+  color: rgb(197, 188, 188);
+}
+.destinations-intro h2{
+  font-size: 50px;
+  letter-spacing: 10px;;
+}
+.destinations-intro article{
+  padding: 60px 0;
+  font-size: 30px;
+  color:rgb(197, 194, 194)
+}
+
+.flex{
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+ul li{
+  list-style: none;
+  padding-left: 20px;
+}
+
+.destinations h2{
+  letter-spacing: 15px;
+  text-transform: uppercase;
+}
+
+.destinations .column-2{
+  background-color: black;
+}
+
+.shadow-effect-1{
+  height: 150px;
+  width: 100%;
+  background: linear-gradient(to bottom, rgb(3, 3, 22), rgb(0, 0, 0));
+}
+
+
+.shadow-effect-2{
+  height: 150px;
+  width: 100%;
+  background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(3, 3, 22));
+}
