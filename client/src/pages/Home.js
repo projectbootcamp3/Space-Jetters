@@ -1,6 +1,7 @@
 import React from "react";
 import Auth from "../utils/auth";
 import heroImage from "../assets/home-images/space-station.jpg"
+import astronaultImg from "../assets/home-images/astronault.jpg"
 
 import testimonial1 from "../assets/testimonials/testimonial-1.jpg"
 import testimonial2 from "../assets/testimonials/testimonial-2.jpg"
@@ -56,7 +57,7 @@ const loggedIn = Auth.loggedIn();
         </div>
 
         <div className="text-container">
-            <p> Flying outside Earth with SpaceJetters will provide you an amazing and  <span className="highlight">breathtaking experience</span> breathtaking experience with  <span className="highlight">affordable prices</span>. Our team is well prepared to make your trip <span className="highlight">secure</span> and provide you with all the guidance and information you need. Any questions? Follow the contact us button below:
+            <p> Flying outside Earth with SpaceJetters will provide you an amazing and  <span className="highlight">breathtaking experience</span> with  <span className="highlight">affordable prices</span>. Our team is well prepared to make your trip <span className="highlight">secure</span> and provide you with all the guidance and information you need. Any questions? Follow the contact us button below:
             </p>
             <div>
                 <a href="#" className="btn-primary"> Contact Us<span className="btn-span"></span></a>
@@ -181,6 +182,29 @@ const loggedIn = Auth.loggedIn();
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Tempore, iusto!
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section D */}
+      <section className="section-d flex-columns">
+        <div className="row">
+          <div className="column">
+            <div className="column-1">
+            <img className="astronault" src={astronaultImg}/>
+            </div>
+          </div>
+          <div className="column">
+            <div className="column-2 bg-primary">
+              <h4>Wanna read about other people experiences?</h4>
+              <h2>See what other space travellers say </h2>
+              <p>
+               Flying with <span className="highlight">SpaceJetters</span>, has given many people across the world the greatest moments in their life. You can read what they see and share your thoughts as well.
+              </p>
+              <a href="#" className="btn-secondary">
+                read here
+              </a>
             </div>
           </div>
         </div>
