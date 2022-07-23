@@ -20,11 +20,8 @@ client
   .query({
     query: gql`
       query GetLocations {
-        locations {
-          id
+        rockets {
           name
-          description
-          photo
         }
       }
     `,
