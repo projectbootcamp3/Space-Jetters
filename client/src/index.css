@@ -351,3 +351,7 @@ form{
   margin: 0 auto;
   width: 20%;
 }
+
+.contact-container{
+  display: flex;
+}
