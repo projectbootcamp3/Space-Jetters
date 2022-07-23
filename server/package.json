@@ -2,7 +2,7 @@
   "scripts": {
     "start": "node server.js",
     "watch": "nodemon",
-    "seed": "node seeders/seeds.js"
+    "seed": "node seeders/index.js"
   },
   "dependencies": {
     "apollo-server-express": "^3.10.0",
@@ -14,6 +14,7 @@
     "nodemon": "^2.0.19"
   },
   "devDependencies": {
+    "dotenv": "^16.0.1",
     "nodemon": "^2.0.3"
   }
 }

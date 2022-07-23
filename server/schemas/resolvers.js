@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Mission } = require('../models');
+const { User, Mission, Rocket } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -18,6 +18,15 @@ const resolvers = {
       return User.findOne({ username })
         .select('-__v -password')
     },
+    user: async (parent, { username }) => {
+      return User.findOne({ username })
+        .select('-__v -password')
+    },
+    rockets: async (parent, args) => {
+      const result = await Rocket.find({});
+      console.log(result);
+      return result;
+    }
   },
 
   Mutation: {
