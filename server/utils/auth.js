@@ -13,6 +13,8 @@ module.exports = {
                 .split(' ')
                 .pop()
                 .trim();
+            console.log('🪙 This is the token:');
+
         }
 
         if (!token) {
