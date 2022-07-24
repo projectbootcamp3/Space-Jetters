@@ -1,0 +1,12 @@
+GET http://localhost:3001/destinations
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTWF0dGhldyIsImlhdCI6MTY1ODY5MzY5MX0.alfQnS0BY_M_VlDVyP5Ri4WTt99DB_Xo-YOMv8pXWUo
+
+
+###
+
+POST http://localhost:3001/login
+Content-Type: application/json
+
+{
+    "username": "Matthew"
+}
