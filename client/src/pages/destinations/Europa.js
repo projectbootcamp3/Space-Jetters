@@ -74,7 +74,7 @@ const Europa = () => {
           <p> Final Price: <span className="finalPrice"> value </span></p>
          </div>
          <div className="btn-checkout-box">
-         <button className="btn-3 btn-checkout">
+         <button id="europa-btn"className="btn-3 btn-checkout">
                 <Link to="/checkout">checkout</Link>
           </button> 
          </div>
