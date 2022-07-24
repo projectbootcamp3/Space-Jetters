@@ -1,12 +1,25 @@
 GET http://localhost:3001/destinations
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTWF0dGhldyIsImlhdCI6MTY1ODY5MzY5MX0.alfQnS0BY_M_VlDVyP5Ri4WTt99DB_Xo-YOMv8pXWUo
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTHVjY2EiLCJpYXQiOjE2NTg2OTY2NjQsImV4cCI6MTY1ODY5NjY3OX0.E1d1DJD7rn7OCF8CjAdmmFAPQOP1ny-38DebItBnPVk
 
 ###
 
-POST http://localhost:3001/login
+DELETE http://localhost:4000/logout
+Content-Type: application/json
+ 
+
+###
+POST http://localhost:4000/token
 Content-Type: application/json
 
 {
-    "username": "Matthew"
+"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTHVjY2EiLCJpYXQiOjE2NTg2OTY2NDh9.k0YBtb0aOgaYSDF843qLVhZCVRHXgo0viGqbv_BzgHg"
+}
+
+###
+
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+    "username": "Lucca"
 }
