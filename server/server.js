@@ -1,7 +1,7 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
-
+const routes = require('./routes/index');
 const db = require('./config/connection');
 
 const { typeDefs, resolvers } = require('./schemas');
@@ -34,6 +34,45 @@ if (process.env.NODE_ENV === 'production') {
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 };
+
+const userData = [
+  {
+    "username": "senthol",
+    "email": "katoch.senthol@gmail.com",
+    "password": "123456789"
+  },
+  {
+    "username": "lewis",
+    "email": "thiszlewis@gmail.com",
+    "password": "123456789"
+  },
+  {
+    "username": "deiondrae",
+    "email": "deiondrae@gmail.com",
+    "password": "123456789"
+  },
+  {
+    "username": "matthew",
+    "email": "matthewapryor@gmail.com",
+    "password": "123456789"
+  },
+  {
+    "username": "oindrila",
+    "email": "oindrilatalukder.ot@gmail.com",
+    "password": "123456789"
+  },
+  {
+    "username": "lucca",
+    "email": "lucca.ara7@gmail.com",
+    "password": "123456789"
+  }
+]
+
+app.get('/users', (req, res) => {
+  res.json(userData)
+})
+
+app.use(routes);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));

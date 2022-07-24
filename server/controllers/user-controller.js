@@ -78,7 +78,7 @@ module.exports = {
         console.log('🧑‍🚀 User:', user);
         const updatedUser = await User.findOneAndUpdate(
             { _id: user._id },
-            { $pull: { savedDestinations: { bookId: params.bookId } } },
+            { $pull: { savedDestinations: { destinationId: params.destinationId } } },
             { new: true }
         );
         if (!updatedUser) {

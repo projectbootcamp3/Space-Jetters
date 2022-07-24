@@ -2,13 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
 
-
 const Header = () => {
   const logout = (event) => {
+    console.log('LOGOUT EVENT: ', event, '\n\n==============================================================')
+
     event.preventDefault();
     Auth.logout();
     console.log('👽 Abducted!......you logged out.')
-
   };
 
   return (
@@ -24,9 +24,7 @@ const Header = () => {
               <Link to="/rockets">Rockets</Link>
               <Link to="/contact">Contact</Link>
               <Link to="/profile">Profile</Link>
-              <a href="/" onClick={logout}>
-                Logout
-              </a>
+              <a href="/" onClick={logout}>Logout</a>
             </>
           ) : (
             <>

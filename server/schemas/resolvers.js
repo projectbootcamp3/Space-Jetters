@@ -47,14 +47,14 @@ const resolvers = {
       }
 
       const correctPw = await user.isCorrectPassword(password);
-      console.log('🔑 Here is the CORRECT password of the user that is logging in: ', correctPw, '\n\n==============================================================');
+      console.log('🔑 The given LOGIN password was correct? ', correctPw, '\n\n==============================================================');
 
       if (!correctPw) {
         throw new AuthenticationError('Incorrect password! 🚫', '\n\n==============================================================');
       }
 
       const token = signToken(user);
-      console.log('🔑 The given LOGIN password was correct? ', token, '\n\n==============================================================');
+      console.log('🪙 Now the user has a SIGNED TOKEN to use ', token, '\n\n==============================================================');
       return { token, user };
     },
     missions: async () => {
