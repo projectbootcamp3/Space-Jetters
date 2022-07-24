@@ -8,6 +8,7 @@ const Header = () => {
     event.preventDefault();
     Auth.logout();
     console.log('👽 Abducted!......you logged out.')
+
   };
 
   return (

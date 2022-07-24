@@ -44,12 +44,12 @@ module.exports = {
         const correctPw = await user.isCorrectPassword(body.password);
 
         if (!correctPw) {
-            return res.status(400).json({ message: 'Wrong password!' });
+            return res.status(400).json({ message: 'Wrong password! 🚫' });
         }
         // Returns the jsonwebtoken as a string
         const token = signToken(user);
-        res.json({ token, user });
-        console(`Token:`, token, ' ---- ', `User: `, user);
+        res.json('This is the response JSON:', { token, user });
+        console(`=========== 🪙 Token:`, token, ' =========== ', `🧑‍🚀 User: `, user, ' ===========');
     },
 
     // save a destination to a user's `savedDestinations` field by adding it to the set (to prevent duplicates)
