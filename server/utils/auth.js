@@ -6,6 +6,8 @@ module.exports = {
     authMiddleware: function ({ req }) {
         let token = req.body.token || req.query.token || req.headers.authorization;
 
+        console.log('Token:', token);
+
         if (req.headers.authorization) {
             token = token
                 .split(' ')
@@ -15,6 +17,8 @@ module.exports = {
 
         if (!token) {
             return req;
+            console.log('There is not a token! Here, passing the original request', req);
+
         }
 
         try {
