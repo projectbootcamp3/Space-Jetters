@@ -5,12 +5,12 @@ const {
     getSingleUser,
     saveDestination,
     login
-} = require('../../controllers/user-controller')
+} = require('../controllers/user-controller')
 
-const { authMiddleware } = require('../../utils/auth');
+const { authMiddleware } = require('../utils/auth');
 
 // NOTE: authMiddleware belongs anywhere we need to send a token for verification of user
-router.route('/').post(createUser).put(authMiddleware, saveBook);
+router.route('/').post(createUser).put(authMiddleware, saveDestination);
 
 router.route('/login').post(login);
 

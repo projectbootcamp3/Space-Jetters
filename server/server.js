@@ -16,7 +16,7 @@ const startServer = async () => {
   });
   await server.start();
   server.applyMiddleware({ app });
-  console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+  console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath} 🔭`);
 };
 
 startServer();
@@ -41,6 +41,6 @@ app.get('*', (req, res) => {
 
 db.once('open', () => {
   app.listen(PORT, () => {
-    console.log(`API server running on port ${PORT}!`);
+    console.log(`API server running on port ${PORT}! 🛰`);
   });
 });
