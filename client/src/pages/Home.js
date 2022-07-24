@@ -11,7 +11,7 @@ import testimonial4 from "../assets/testimonials/testimonial-4.jpg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faCalendar, faRocket } from "@fortawesome/free-solid-svg-icons";
 
-
+import { Link } from "react-router-dom";
 
 
 const Home = () => {
@@ -60,7 +60,8 @@ const loggedIn = Auth.loggedIn();
             <p> Flying outside Earth with SpaceJetters will provide you an amazing and  <span className="highlight">breathtaking experience</span> with  <span className="highlight">affordable prices</span>. Our team is well prepared to make your trip <span className="highlight">secure</span> and provide you with all the guidance and information you need. Any questions? Follow the contact us button below:
             </p>
             <div>
-                <a href="#" className="btn-primary"> Contact Us<span className="btn-span"></span></a>
+                <a href="#" className="btn-primary"> <Link to="/contact">Contacts Us</Link><span className="btn-span"></span></a>
+               
             </div>
         </div>
       </section>
