@@ -21,6 +21,12 @@ import Destinations from "./pages/Destinations";
 import Rockets from "./pages/Rockets";
 import Contact from "./pages/Contact";
 import NoMatch from "./pages/NoMatch";
+// Destinations
+import Moon from "./pages/destinations/Moon";
+import Mars from "./pages/destinations/Mars";
+import Europa from "./pages/destinations/Europa";
+import SpaceStation from "./pages/destinations/SpaceStation";
+import Titan from "./pages/destinations/Titan";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -56,7 +62,11 @@ function App() {
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/profile/:username?" component={Profile} />
-              
+              <Route path="/destinations/moon" component={Moon} />
+              <Route path="/destinations/mars" component={Mars} />
+              <Route path="/destinations/europa" component={Europa} />
+              <Route path="/destinations/titan" component={Titan} />
+              <Route path="/destinations/spacestation" component={SpaceStation} />
               <Route component={NoMatch} />
             </Switch>
           </div>
