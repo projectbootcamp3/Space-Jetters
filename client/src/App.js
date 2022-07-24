@@ -21,6 +21,7 @@ import Destinations from "./pages/Destinations";
 import Rockets from "./pages/Rockets";
 import Contact from "./pages/Contact";
 import NoMatch from "./pages/NoMatch";
+import Checkout from "./pages/Checkout";
 // Destinations
 import Moon from "./pages/destinations/Moon";
 import Mars from "./pages/destinations/Mars";
@@ -67,6 +68,7 @@ function App() {
               <Route path="/destinations/europa" component={Europa} />
               <Route path="/destinations/titan" component={Titan} />
               <Route path="/destinations/spacestation" component={SpaceStation} />
+              <Route path="/checkout" component={Checkout} />
               <Route component={NoMatch} />
             </Switch>
           </div>

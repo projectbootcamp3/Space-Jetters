@@ -59,6 +59,8 @@ body {
   position: relative;
   padding: 6px 30px;
   text-decoration: none;
+  color: #fff;
+  
 }
 
 .btn-primary:before{
@@ -115,6 +117,12 @@ body {
 }
 
 .text-container a:hover span{
+  opacity: 1;
+  transform: translateY(1px);
+  animation: hide 0.7s linear forwards;
+}
+
+.btn-checkout-box button:hover span{
   opacity: 1;
   transform: translateY(1px);
   animation: hide 0.7s linear forwards;
@@ -478,4 +486,121 @@ ul li{
   height: 150px;
   width: 100%;
   background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(3, 3, 22));
+}
+
+
+
+/* Each destination page*/
+
+.desti-title{
+    font-size: 50px;
+    padding: 40px 0;
+}
+
+.dest-page{
+  background-color:rgb(0, 0, 0);
+  color: #fff;
+}
+
+.destinations-info{
+  display: flex;
+  justify-content: space-around;
+  height: 60vh;
+  padding-top: 60px;
+}
+
+.dest-info-box{
+  display: flex;
+  flex-direction: column;
+  text-align: center ;
+}
+
+.individual-dest-info{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 17px;
+}
+
+.individual-dest-info p:nth-last-child(1) {
+    padding-left: 90px;
+    color:rgb(152, 146, 146)
+}
+
+.line-2{
+  width: 100%;
+  height: 1px;
+  background-color: #333;
+}
+
+.destinations-input-box{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.destinations-input-box p{
+  text-align: center;
+  padding-top: 40px;
+}
+.inputs-box{
+  display: flex;
+
+}
+
+.individual-input{
+  display: flex;
+  padding-left: 40px;
+  width: 700px;
+}
+
+.individual-input label{
+  padding-right: 19px;
+  font-size: 25px;;
+}
+
+.individual-input input{
+  outline: none;
+  border: none;
+}
+.destination-img{
+  width: 100%;
+}
+
+.dest-img-container{
+  width: 70%;
+  margin: 0 auto;
+}
+
+.includedBox h2{
+  text-align: center;
+}
+.included-text{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  color:rgb(152, 146, 146)
+}
+
+.included-text li{
+  padding-top: 15px;
+}
+
+.checkout-btn{
+  cursor: pointer;
+  color: #fff !important;
+  font-size: 70px;
+}
+
+.btn-checkout-box button{
+  font-size: 20px;
+}
+
+.btn-checkout-box{
+  padding-top: 50px;
+}
+.checkout-btn:visited{
+  color: #fff;
+  text-decoration: none;
 }
