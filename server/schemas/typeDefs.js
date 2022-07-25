@@ -32,6 +32,9 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     rockets: [Rocket]
+    rocket(name: String!): Rocket
+    missions: [Mission]
+    mission(ID: String!): Mission
   }
 
   type Mutation {

@@ -26,6 +26,15 @@ const resolvers = {
       const result = await Rocket.find({});
       console.log(result);
       return result;
+    },
+    rocket: async (parent, { name }) => {
+      return Rocket.findOne({ name })
+    },
+    mission: async (parent, { _id }) => {
+      return Mission.findOne({ _id })
+    },
+    missions: async () => {
+      return Mission.find({})
     }
   },
 
