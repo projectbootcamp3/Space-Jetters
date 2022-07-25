@@ -60,6 +60,9 @@ body {
   padding: 6px 30px;
   text-decoration: none;
   color: #fff;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
   
 }
 
@@ -116,7 +119,7 @@ body {
   opacity: 0;
 }
 
-.text-container a:hover span{
+.text-container button:hover span{
   opacity: 1;
   transform: translateY(1px);
   animation: hide 0.7s linear forwards;

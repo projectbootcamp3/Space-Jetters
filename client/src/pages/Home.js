@@ -40,8 +40,18 @@ const loggedIn = Auth.loggedIn();
             </p>
         </article>
         <div>
-            <a href="#" className="btn-secondary"> explore</a>
-            <a href="#" className="btn-3"> about us</a>
+        {Auth.loggedIn() ? (
+              <>
+                <a href="#" className="btn-secondary"><Link to="/destinations">explore</Link></a>
+                <a href="#" className="btn-3"><Link to="/rockets">rockets</Link></a>
+            
+              </>
+            ) : (
+              <>
+                <a href="#" className="btn-secondary"><Link to="/login">explore</Link></a>
+                <a href="#" className="btn-3"><Link to="/login">rockets</Link></a>
+              </>
+            )}
         </div>
      </div>
       </div>
@@ -59,9 +69,24 @@ const loggedIn = Auth.loggedIn();
         <div className="text-container">
             <p> Flying outside Earth with SpaceJetters will provide you an amazing and  <span className="highlight">breathtaking experience</span> with  <span className="highlight">affordable prices</span>. Our team is well prepared to make your trip <span className="highlight">secure</span> and provide you with all the guidance and information you need. Any questions? Follow the contact us button below:
             </p>
+
+            <div></div>
             <div>
-                <a href="#" className="btn-primary"> <Link to="/contact">Contacts Us</Link><span className="btn-span"></span></a>
-               
+                {Auth.loggedIn() ? (
+              <>
+               <button  className="btn-primary">
+                    <Link to="/contact">Contacts Us</Link>
+                    <span className="btn-span"></span>
+                </button>
+              </>
+            ) : (
+              <>
+                <button  className="btn-primary">
+                    <Link to="/login">Contacts Us</Link>
+                    <span className="btn-span"></span>
+                </button>
+              </>
+            )}
             </div>
         </div>
       </section>
