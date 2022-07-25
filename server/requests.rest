@@ -5,14 +5,18 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTHVjY2EiL
 
 DELETE http://localhost:4000/logout
 Content-Type: application/json
- 
+
+ {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTHVjY2EiLCJpYXQiOjE2NTg2OTY5ODF9.prbJeOvanN5G_m0tzQDEPAOs2SlGKGeonGVXMY1m7fI"
+ }
 
 ###
+
 POST http://localhost:4000/token
 Content-Type: application/json
 
 {
-"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTHVjY2EiLCJpYXQiOjE2NTg2OTY2NDh9.k0YBtb0aOgaYSDF843qLVhZCVRHXgo0viGqbv_BzgHg"
+"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTHVjY2EiLCJpYXQiOjE2NTg2OTY5ODF9.prbJeOvanN5G_m0tzQDEPAOs2SlGKGeonGVXMY1m7fI"
 }
 
 ###
