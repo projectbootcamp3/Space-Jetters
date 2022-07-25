@@ -18,11 +18,16 @@ const resolvers = {
       return User.findOne({ username })
         .select('-__v -password')
     },
-    user: async (parent, { username }) => {
-      return User.findOne({ username })
-        .select('-__v -password')
-    },
     rockets: async (parent, args) => {
+      const result = await Rocket.find({});
+      console.log(result);
+      return result;
+    },
+    users: async (parent, args) => {
+      const result = await User.find({});
+      console.log(result);
+      return result;
+    },    rockets: async (parent, args) => {
       const result = await Rocket.find({});
       console.log(result);
       return result;
