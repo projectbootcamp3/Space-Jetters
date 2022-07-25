@@ -4,7 +4,6 @@ const { User } = require('../models');
 const { signToken } = require('../utils/auth');
 
 module.exports = {
-
     // get a single user by either their id or their username
     async getSingleUser({ user = null, params }, res) {
         console.log('🧑‍🚀 User:', user);
