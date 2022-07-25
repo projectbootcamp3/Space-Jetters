@@ -5,14 +5,14 @@ const {
     getDestinationById,
     saveDestination,
     deleteDestination
-} = require('../../controllers/destination-controller')
-
+} = require('../../controllers/destination-controller');
+const { authMiddleware } = require('../../utils/auth');
 
 
 // GET DESTINATIONS AFTER AUTHENTICATION
-router.route('/destinations').get(authenticateToken, getMyDestinations);
+router.route('/').get(authMiddleware, getDestinations);
 
 // DELETE DESTINATION
-router.route('/destinations/:destId').delete(authMiddleware, saveDestination);
+// router.route('/destinations/:destId').delete(authMiddleware, deleteDestination);
 
 module.exports = router;

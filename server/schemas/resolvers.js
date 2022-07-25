@@ -1,6 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Mission, Rocket } = require('../models');
-const { signToken } = require('../utils/auth');
+const { signToken, authenticateToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -9,27 +9,37 @@ const resolvers = {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
 
-        console.log('Here is MY user data: ', userData, '\n\n==============================================================')
+        console.log('Here is MY user data: ', userData)
         return userData;
       }
 
       throw new AuthenticationError('Not logged in');
     },
     user: async (parent, { username }) => {
-      console.log('🔍 Finding user: ', username, '\n\n==============================================================');
+      console.log('🔍 Finding user: ', username);
       return User.findOne({ username })
         .select('-__v -password')
     },
     users: async (parent, args) => {
-      console.log('🔍 Finding ALL users: ', '\n\n==============================================================');
+      console.log('🔍 Finding ALL users: ');
       return User.find({})
         .select('-__v -password')
     },
     rockets: async (parent, args) => {
       const result = await Rocket.find({});
-      console.log('ROCKETS', result, '\n\n==============================================================');
+      console.log('ROCKETS', result);
       return result;
-    }
+    },
+    // getDestinations(_, { req }) {
+    //   let token;
+    //   try {
+    //     token = jwt.verify(req.request.headers.authorization, process.env.ACCESS_TOKEN_SECRET);
+    //   } catch (e) {
+    //     return null;
+    //   }
+    //   console.log(token);
+    //   return token;
+    // }
   },
 
   Mutation: {
@@ -43,18 +53,25 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError('Incorrect credentials! 🚫', '\n\n==============================================================');
+        throw new AuthenticationError('Incorrect credentials! 🚫');
       }
 
       const correctPw = await user.isCorrectPassword(password);
-      console.log('🔑 The given LOGIN password was correct? ', correctPw, '\n\n==============================================================');
+      console.log('🔑 The given LOGIN password was correct? ', correctPw);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect password! 🚫', '\n\n==============================================================');
+        throw new AuthenticationError('Incorrect password! 🚫');
       }
 
       const token = signToken(user);
-      console.log('🪙 Now the user has a SIGNED TOKEN to use ', token, '\n\n==============================================================');
+      console.log('🪙  Now the user has a SIGNED TOKEN to use ', token);
+      return { token, user };
+    },
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
+      const token = signToken(user);
+      console.log(`🆕 Here is the new ${user.username}'s signed token: `, token);
+
       return { token, user };
     },
     missions: async () => {

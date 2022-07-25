@@ -4,7 +4,7 @@ import Auth from "../../utils/auth";
 
 const Header = () => {
   const logout = (event) => {
-    console.log('LOGOUT EVENT: ', event, '\n\n==============================================================')
+    console.log('LOGOUT EVENT: ', event)
 
     event.preventDefault();
     Auth.logout();

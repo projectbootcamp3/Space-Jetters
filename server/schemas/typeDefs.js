@@ -39,6 +39,8 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     missions(destination: String!, password: String!): [Mission]
+    signup(username: String!, email: String!, password: String!): Auth
+    # getDestinations(user: User!): Auth
   }
 `;
 

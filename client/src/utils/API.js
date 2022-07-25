@@ -67,8 +67,21 @@ export const deleteDestination = (destinationId, token) => {
     });
 };
 
+export const getDestinationsFromApi = (token) => {
+
+    // console.log('🆔 DESTINATION ID: \n', destinationId);
+    console.log('🪙 Token: ', token);
+
+    return fetch(`/api/users/destinations`, {
+        method: 'GET',
+        headers: {
+            authorization: `Bearer ${token}`,
+        },
+    });
+};
+
 // NOTE: Could fetch information from an additional API here.
-export const NAM_OF_FUNCTION = (query) => {
+export const NAME_OF_FUNCTION = (query) => {
     // insert api url
     return fetch(`https://www.API_URL${query}`);
 };

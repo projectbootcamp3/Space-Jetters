@@ -8,8 +8,8 @@ class AuthService {
   // Check if the user is still logged in
   loggedIn() {
     const token = this.getToken();
-    console.log('Auth.js ====== 🪙 Login Token: ', token)
-    console.log('BOOLEAN - The token is expired...', this.isTokenExpired(token));
+    console.log('🪙 Encoded token: ', token)
+    console.log('User logged in. Is the token expired?', this.isTokenExpired(token));
     return !!token && !this.isTokenExpired(token);
   }
 
@@ -17,7 +17,7 @@ class AuthService {
   isTokenExpired(token) {
     try {
       const decoded = decode(token);
-      console.log('Auth.js ====== 🔐 Decoded Token: ', decoded, '\n\n==============================================================');
+      console.log('🔐 Decoded Token: ', decoded);
       if (decoded.exp < Date.now() / 1000) {
         return true;
       } else {
@@ -30,30 +30,27 @@ class AuthService {
 
   // Get the data from the local storage
   getToken() {
-    console.log(localStorage.getItem('id_token'));
-    console.log('GETTING TOKEN FROM LOCAL STORAGE', '\n\n==============================================================')
+    console.log('GETTING TOKEN FROM LOCAL STORAGE', localStorage.getItem('id_token'));
     return localStorage.getItem('id_token');
   }
 
   // Here is saving the user's token to local storage
   login(idToken) {
     localStorage.setItem('id_token', idToken);
-
-    console.log('💾 Setting id-token in local storage:', idToken, '\n\n==============================================================');
+    console.log('💾 Setting id-token in local storage:', localStorage.setItem('id_token', idToken));
 
     window.location.assign('/');
-    console.log('Returning to homepage, now with the updated, logged in UI!', '\n\n==============================================================');
+    console.log('Returning to homepage, now with the updated, logged in UI!');
   }
 
   // Remove token to logout
   logout() {
-    console.log('USER LOGGED OUT -- Removing the idToken from local storage')
-    console.log('The id token for this user has been removed from local storage because they have has logged out', '\n\n==============================================================');
     localStorage.removeItem('id_token');
+    console.log('USER LOGGED OUT -- Removing the idToken from local storage', localStorage.removeItem('id_token'));
 
     // Reload the page
     window.location.assign('/');
-    console.log('👽 Abducted!......you logged out.', '\n\n==============================================================')
+    console.log('👽 Abducted!......you logged out.')
   }
 };
 

@@ -34,21 +34,23 @@ module.exports = {
     // login a user, sign a token, and send it back (to client/src/components/LoginForm.js)
     // {body} is destructured req.body
     async login({ body }, res) {
-        const user = await User.findOne({ $or: [{ username: body.username }, { email: body.email }] });
+        const user = await User.findOne({ $or: [{ password: body.password }, { email: body.email }] });
         if (!user) {
             return res.status(400).json({ message: "Can't find this user 🤔" });
-        }
+        };
 
+        console.log(body.username)
         // store the correct password (passed through the body) if the password IS correct
         const correctPw = await user.isCorrectPassword(body.password);
 
         if (!correctPw) {
             return res.status(400).json({ message: 'Wrong password! 🚫' });
-        }
+        };
+
         // Returns the jsonwebtoken as a string
         const token = signToken(user);
         res.json('This is the response JSON:', { token, user });
-        console(`=========== 🪙 Token:`, token, ' =========== ', `🧑‍🚀 User: `, user, ' ===========');
+        console.log(`🪙 Token:`, token, ' =========== ', `🧑‍🚀 User: `, user);
     },
 
     // save a destination to a user's `savedDestinations` field by adding it to the set (to prevent duplicates)

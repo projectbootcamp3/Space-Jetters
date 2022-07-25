@@ -10,10 +10,12 @@ const destinationSchema = new Schema({
         type: Number,
         required: true,
     },
+    // how many days on Earth it is on this destination
     dayLength: {
         type: Number,
         require: true
     },
+    // distance from earth
     distFromEarth: {
         type: Number,
         require: true

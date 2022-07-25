@@ -77,12 +77,12 @@ app.post('/token', (req, res) => {
 
 app.get('/destinations', (req, res) => {
   res.json(destinations.filter(destination => destination.username === req.user.name))
-})
+});
 
 app.delete('/logout', (req, res) => {
   refreshTokens = refreshTokens.filter(token => token !== req.body.token);
   res.sendStatus(204);
-})
+});
 
 app.post('/login', (req, res) => {
   // Authenticate user
@@ -92,12 +92,12 @@ app.post('/login', (req, res) => {
   const accessToken = generateAccessToken(user);
   const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET)
   refreshTokens.push(refreshToken);
-  res.json({ accessToken: accessToken, refreshToken: refreshToken })
-})
+  return userTokens = res.json({ accessToken: accessToken, refreshToken: refreshToken })
+});
 
 function generateAccessToken(user) {
-  return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '15s' })
-}
+  return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '3h' })
+};
 
 app.use(routes);
 
