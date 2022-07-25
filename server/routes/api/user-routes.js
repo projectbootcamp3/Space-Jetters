@@ -16,6 +16,4 @@ router.route('/login').post(login);
 
 router.route('/me').get(authMiddleware, getSingleUser);
 
-router.route('/destinations/:destId').delete(authMiddleware, saveDestination);
-
 module.exports = router;
