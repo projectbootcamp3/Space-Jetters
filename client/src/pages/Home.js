@@ -33,7 +33,7 @@ const loggedIn = Auth.loggedIn();
         )}
          {/* MAIN SECTION WITH HERO IMAGE*/ }
      <div className="main-section">
-        <h1>The <span className="highlight"> best experience</span> in your life will come true with SpaceJetters!</h1>
+        <h1>The <span Name="highlight"> best experience</span> in your life will come true with SpaceJetters!</h1>
         <article>
             <p>
                 SpaceJetters is a travel agency company that allows the customers to travel outside Earth to other places in the Solar System.
@@ -102,9 +102,9 @@ const loggedIn = Auth.loggedIn();
             <div className="line"></div>
         </div>
        
-        <div id="home-b" class="text-center py-2">
-            <div class="container">
-                <p class="lead">
+        <div id="home-b" className="text-center py-2">
+            <div className="container">
+                <p className="lead">
                     See what our customers say
                 </p>
                     {/*Testimonials container */}

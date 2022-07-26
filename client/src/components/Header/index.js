@@ -9,11 +9,16 @@ const Header = () => {
         Auth.logout();
       };
    
+
+    
+
+
+   
     return (
         <header className="header">
         <div className="header-subcontainer">
           <Link to="/">
-            <div className="logo-container"><h1>SpaceJetters</h1></div>
+            <div className="logo-container"><h1 className="logo-title">SpaceJetters</h1></div>
           </Link>
           <nav className="nav" id="nav">
             {Auth.loggedIn() ? (
@@ -25,6 +30,7 @@ const Header = () => {
                 <a href="/" onClick={logout}>
                   Logout
                 </a>
+                
               </>
             ) : (
               <>

@@ -22,6 +22,7 @@ import Rockets from "./pages/Rockets";
 import Contact from "./pages/Contact";
 import NoMatch from "./pages/NoMatch";
 import Checkout from "./pages/Checkout";
+import Sidebar from "./components/Sidebar";
 // Destinations
 import Moon from "./pages/destinations/Moon";
 import Mars from "./pages/destinations/Mars";
@@ -53,7 +54,10 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
+        <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
           <Header />
+          <div className="App hide" id="outer-container">
+        </div>
           <div className="container">
             <Switch>
               <Route exact path="/" component={Home} />
