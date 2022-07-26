@@ -27,7 +27,8 @@ const resolvers = {
       const result = await User.find({});
       console.log(result);
       return result;
-    },    rockets: async (parent, args) => {
+    },   
+    rockets: async (parent, args) => {
       const result = await Rocket.find({});
       console.log(result);
       return result;
