@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const RocketSchema = new Schema(
+const rocketSchema = new Schema(
   {
     name: {
       type: String,
@@ -15,8 +15,8 @@ const RocketSchema = new Schema(
       required: true,
     },
     imageUrl: {
-        type: String,
-        required: true
+      type: String,
+      required: true
     }
   }
 );

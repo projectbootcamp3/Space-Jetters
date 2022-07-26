@@ -4,11 +4,37 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink, gql } from '@apollo/client';
+
+const httpLink = createHttpLink({
+  uri: 'https://flyby-gateway.herokuapp.com/',
+});
+
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache(),
+});
+
+// const client = ...
+client
+  .query({
+    query: gql`
+      query GetLocations {
+        rockets {
+          name
+        }
+      }
+    `,
+  })
+  .then((result) => console.log(result));
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <ApolloProvider client={client}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </ApolloProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

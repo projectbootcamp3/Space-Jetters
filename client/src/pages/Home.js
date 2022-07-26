@@ -1,6 +1,7 @@
 import React from "react";
 import Auth from "../utils/auth";
 import heroImage from "../assets/home-images/space-station.jpg"
+import astronaultImg from "../assets/home-images/astronault.jpg"
 
 import testimonial1 from "../assets/testimonials/testimonial-1.jpg"
 import testimonial2 from "../assets/testimonials/testimonial-2.jpg"
@@ -10,7 +11,7 @@ import testimonial4 from "../assets/testimonials/testimonial-4.jpg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faCalendar, faRocket } from "@fortawesome/free-solid-svg-icons";
 
-
+import { Link } from "react-router-dom";
 
 
 const Home = () => {
@@ -32,15 +33,25 @@ const loggedIn = Auth.loggedIn();
         )}
          {/* MAIN SECTION WITH HERO IMAGE*/ }
      <div className="main-section">
-        <h1>The <span className="highlight"> best experience</span> in your life will come true with SpaceJetters!</h1>
+        <h1>The <span Name="highlight"> best experience</span> in your life will come true with SpaceJetters!</h1>
         <article>
             <p>
                 SpaceJetters is a travel agency company that allows the customers to travel outside Earth to other places in the Solar System.
             </p>
         </article>
         <div>
-            <a href="#" className="btn-secondary"> explore</a>
-            <a href="#" className="btn-3"> about us</a>
+        {Auth.loggedIn() ? (
+              <>
+                <a href="#" className="btn-secondary"><Link to="/destinations">explore</Link></a>
+                <a href="#" className="btn-3"><Link to="/rockets">rockets</Link></a>
+            
+              </>
+            ) : (
+              <>
+                <a href="#" className="btn-secondary"><Link to="/login">explore</Link></a>
+                <a href="#" className="btn-3"><Link to="/login">rockets</Link></a>
+              </>
+            )}
         </div>
      </div>
       </div>
@@ -56,10 +67,26 @@ const loggedIn = Auth.loggedIn();
         </div>
 
         <div className="text-container">
-            <p> Flying outside Earth with SpaceJetters will provide you an amazing and  <span className="highlight">breathtaking experience</span> breathtaking experience with  <span className="highlight">affordable prices</span>. Our team is well prepared to make your trip <span className="highlight">secure</span> and provide you with all the guidance and information you need. Any questions? Follow the contact us button below:
+            <p> Flying outside Earth with SpaceJetters will provide you an amazing and  <span className="highlight">breathtaking experience</span> with  <span className="highlight">affordable prices</span>. Our team is well prepared to make your trip <span className="highlight">secure</span> and provide you with all the guidance and information you need. Any questions? Follow the contact us button below:
             </p>
+
+            <div></div>
             <div>
-                <a href="#" className="btn-primary"> Contact Us<span className="btn-span"></span></a>
+                {Auth.loggedIn() ? (
+              <>
+               <button  className="btn-primary">
+                    <Link to="/contact">Contacts Us</Link>
+                    <span className="btn-span"></span>
+                </button>
+              </>
+            ) : (
+              <>
+                <button  className="btn-primary">
+                    <Link to="/login">Contacts Us</Link>
+                    <span className="btn-span"></span>
+                </button>
+              </>
+            )}
             </div>
         </div>
       </section>
@@ -75,9 +102,9 @@ const loggedIn = Auth.loggedIn();
             <div className="line"></div>
         </div>
        
-        <div id="home-b" class="text-center py-2">
-            <div class="container">
-                <p class="lead">
+        <div id="home-b" className="text-center py-2">
+            <div className="container">
+                <p className="lead">
                     See what our customers say
                 </p>
                     {/*Testimonials container */}
@@ -181,6 +208,29 @@ const loggedIn = Auth.loggedIn();
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Tempore, iusto!
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section D */}
+      <section className="section-d flex-columns">
+        <div className="row">
+          <div className="column">
+            <div className="column-1">
+            <img className="astronault" src={astronaultImg}/>
+            </div>
+          </div>
+          <div className="column">
+            <div className="column-2 bg-primary">
+              <h4>Wanna read about other people experiences?</h4>
+              <h2>See what other space travellers say </h2>
+              <p>
+               Flying with <span className="highlight">SpaceJetters</span>, has given many people across the world the greatest moments in their life. You can read what they see and share your thoughts as well.
+              </p>
+              <a href="#" className="btn-secondary">
+                read here
+              </a>
             </div>
           </div>
         </div>
