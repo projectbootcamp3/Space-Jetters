@@ -1,17 +1,37 @@
 [
   {
     "name": "Moon",
-    "date": "August 5, 2023",
-    "crew": 4
+    "travelTime": "1 month",
+    "dayLength": "29.5 Earth days",
+    "distance": "384,400",
+    "trainingTime": "3"
   },
   {
-    "name": "Neptune",
-    "date": "December 1, 2022",
-    "crew": 2
+    "name": "Mars",
+    "travelTime": "2 weeks",
+    "dayLength": "24 hours, 37 minutes",
+    "distance": "173.7 million",
+    "trainingTime": "3"
   },
   {
-    "name": "Pluto",
-    "date": "January 17, 2025",
-    "crew": 10
+    "name": "Europa",
+    "travelTime": "2 weeks",
+    "dayLength": "3.5 Earth days",
+    "distance": "628.3 million",
+    "trainingTime": "5"
+  },
+  {
+    "name": "Titan",
+    "travelTime": "6 weeks",
+    "dayLength": "2 Earth days",
+    "distance": "1.2 billion",
+    "trainingTime": "5"
+  },
+  {
+    "name": "Space Station",
+    "travelTime": "18 hours",
+    "dayLength": "1 Earth day",
+    "distance": "100,000",
+    "trainingTime": "3"
   }
 ]
