@@ -31,35 +31,25 @@ import SpaceStation from "./pages/destinations/SpaceStation";
 import Titan from "./pages/destinations/Titan";
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
-});
-
-const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    },
-  };
+  uri: 'http://localhost:3001/graphql',
 });
 
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  link: httpLink,
   cache: new InMemoryCache(),
 });
 
 function App() {
- 
+
   return (
     <ApolloProvider client={client}>
       <Router>
         <div>
-        <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'}
-        />
+          <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'}
+          />
           <Header />
           <div className="App hide" id="outer-container">
-        </div>
+          </div>
           <div className="container">
             <Switch>
               <Route exact path="/" component={Home} />
