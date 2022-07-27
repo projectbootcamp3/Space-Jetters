@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Mission, Rocket } = require('../models');
+const { User, Mission, Rocket, Destination } = require('../models');
 const { signToken, authenticateToken } = require('../utils/auth');
 
 const fakeDB = [
@@ -34,6 +34,11 @@ const resolvers = {
     rockets: async (parent, args) => {
       const result = await Rocket.find({});
       console.log('ROCKETS', result);
+      return result;
+    },
+    destinations: async (parent, args) => {
+      const result = await Destination.find({});
+      console.log('DESTINATIONS', result);
       return result;
     },
     // getDestinations(_, { req }) {

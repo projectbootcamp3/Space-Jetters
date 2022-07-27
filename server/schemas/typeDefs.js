@@ -24,7 +24,10 @@ const typeDefs = gql`
 
   type Destination {
     name: String
-    distance: Int
+    travelTime: String
+    dayLength: String
+    distance: String
+    trainingTime: String
   }
 
   input MissionInput {
@@ -45,6 +48,7 @@ const typeDefs = gql`
     rocket(_id: ID!): Rocket
     rockets: [Rocket]
     missions: [Mission]
+    destinations: [Destination]
     getMission: String
   }
 

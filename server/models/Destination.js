@@ -5,30 +5,30 @@ const destinationSchema = new Schema({
         type: String,
         required: true,
     },
-    // it's a number, but the number will appear in a string literal
-    tripDuration: {
-        type: Number,
+    // it's a String, but the String will appear in a string literal
+    travelTime: {
+        type: String,
         required: true,
     },
     // how many days on Earth it is on this destination
     dayLength: {
-        type: Number,
+        type: String,
         require: true
     },
     // distance from earth
-    distFromEarth: {
-        type: Number,
+    distance: {
+        type: String,
         require: true
     },
     // measured in days
-    lengthOfTraining: {
-        type: Number,
+    trainingTime: {
+        type: String,
         require: true
     },
-    imageUrl: {
-        type: String,
-        required: true,
-    },
+    // imageUrl: {
+    //     type: String,
+    //     required: true,
+    // },
 });
 
 const Destination = model("Destination", destinationSchema);
