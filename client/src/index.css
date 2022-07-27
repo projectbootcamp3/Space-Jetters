@@ -487,6 +487,10 @@ ul li{
   background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(3, 3, 22));
 }
 
+.destinations button{
+  background-color: transparent;
+  border: none;
+}
 
 
 /* Each destination page*/
@@ -774,7 +778,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   .main-section{
     padding: 20px;
     margin: 0 auto;
-    margin-top: 69%;
+    margin-top: 100%;
     width: 85%;
     background-color: rgba(255, 255, 255, .15);   
     backdrop-filter: blur(5px);
@@ -879,6 +883,34 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
   .flex-columns .highlight{
     font-size: 15px;
+  }
+
+  /*Destinations page*/   
+
+  .destinations-intro{
+    padding-top: 50px;
+  }
+  .destinations-intro h2{
+    font-size: 25px;
+  }
+
+  .flex{
+    font-size: 10px;
+  }
+
+  .destinations-intro article {
+    font-size: 17px;
+    padding: 60px 10px;
+  }
+
+  .shadow-effect-1{
+    height: 20px;
+  }
+
+  .destinations h2, button{
+    text-align: center;
+    margin: 0 auto;
+    line-height: 29px;
   }
 
 };
