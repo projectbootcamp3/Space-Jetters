@@ -47,12 +47,13 @@ const Moon = () => {
           <li>* Tour through multiple tourism places and views</li>
           <li>  * Insurance</li>
          </ul>
+         <div className="line-2"></div>
         </div>
       </section>
-      <div className="line-2"></div>
+
 
        {/* Inputs */}
-       <div>
+       <div className="input-wrapper">
           <form  className="destinations-input-box">
             <div className="inputs-box">
                 {/* Travel date*/}

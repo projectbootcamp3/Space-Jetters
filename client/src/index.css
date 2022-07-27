@@ -913,4 +913,58 @@ Note: Beware of modifying this element as it can break the animations - you shou
     line-height: 29px;
   }
 
+  /*Single destination page*/
+  .destinations-info{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .includedBox h2{
+    padding-top: 15px;
+    font-size: 22px;
+  }
+
+  .included-text li{
+   font-size: 15px;
+  }
+
+  .destinations-input-box{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inputs-box{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .individual-input{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+  
+  .individual-input label{
+    font-size: 15px;
+    padding-top: 28px;
+  }
+
+  .btn-checkout-box button{
+    margin: 0 auto;
+    font-size: 15px;
+  }
+
+  .dest-img-container {
+    margin: 0 auto;
+    width: 95%;
+  }
+
+
+
+
+  .input-wrapper{
+    width: 80%;
+    margin: 0 auto;
+  }
+
 };
