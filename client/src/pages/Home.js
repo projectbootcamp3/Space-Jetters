@@ -10,15 +10,13 @@ import testimonial4 from "../assets/testimonials/testimonial-4.jpg"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faCalendar, faRocket } from "@fortawesome/free-solid-svg-icons";
-
 import { Link } from "react-router-dom";
-
 
 const Home = () => {
  
 const loggedIn = Auth.loggedIn();
   return (
-    <main>
+    <main id="main">
       <div  className="hero_image"
         style={{
           backgroundImage: `url(${heroImage})`,
@@ -32,24 +30,24 @@ const loggedIn = Auth.loggedIn();
           </section>
         )}
          {/* MAIN SECTION WITH HERO IMAGE*/ }
+        <div className="hidden-box"><h1 className="hide hidden-title">Welcome to the <span className="highlight">future</span> of tourism.</h1></div>
      <div className="main-section">
-        <h1>The <span Name="highlight"> best experience</span> in your life will come true with SpaceJetters!</h1>
+        <h1>The <span className="highlight"> best experience</span> in your life will come true with SpaceJetters!</h1>
         <article>
             <p>
                 SpaceJetters is a travel agency company that allows the customers to travel outside Earth to other places in the Solar System.
             </p>
         </article>
-        <div>
+        <div className="btn-box">
         {Auth.loggedIn() ? (
               <>
-                <a href="#" className="btn-secondary"><Link to="/destinations">explore</Link></a>
-                <a href="#" className="btn-3"><Link to="/rockets">rockets</Link></a>
-            
+                <Link to="/destinations" className="btn-secondary link">explore</Link>
+                <Link to="/rockets" className="btn-3">rockets</Link>
               </>
             ) : (
               <>
-                <a href="#" className="btn-secondary"><Link to="/login">explore</Link></a>
-                <a href="#" className="btn-3"><Link to="/login">rockets</Link></a>
+                <Link to="/login" className="btn-secondary">explore</Link>
+                <Link to="/login" className="btn-3">rockets</Link>
               </>
             )}
         </div>
@@ -74,8 +72,8 @@ const loggedIn = Auth.loggedIn();
             <div>
                 {Auth.loggedIn() ? (
               <>
-               <button  className="btn-primary">
-                    <Link to="/contact">Contacts Us</Link>
+               <button className="btn-primary" >
+                    <Link to="/contact" className="link">Contacts Us</Link>
                     <span className="btn-span"></span>
                 </button>
               </>
@@ -180,19 +178,25 @@ const loggedIn = Auth.loggedIn();
             <div className="line"></div>
         </div>
         <div className="flex-items">
-          <div>
-          <div className="blueIcon"><FontAwesomeIcon icon={faCalendar} /></div>
-            <div>
-              <h3>Choose the date</h3>
-              <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Tempore, iusto!
-              </p>
-            </div>
+
+        <div className="line-2 hide"></div>
+
+          <div className="icon-box">
+            <div className="blueIcon"><FontAwesomeIcon icon={faCalendar} /></div>
+              <div>
+                <h3>Choose the date</h3>
+                <p>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Tempore, iusto!
+                </p>
+              </div>
           </div>
-          <div>
+
+            <div className="line-2 hide"></div>
+
+          <div className="icon-box">
             <div className="blueIcon"> <i class="fa-solid fa-chalkboard-user"></i></div>
-            <div>
+            <div >
               <h3>Prepare and Study</h3>
               <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -200,9 +204,12 @@ const loggedIn = Auth.loggedIn();
               </p>
             </div>
           </div>
+
+          <div className="line-2 hide"></div>
+
           <div>
           <div className="blueIcon"><FontAwesomeIcon icon={faRocket} /></div>
-            <div>
+            <div className="icon-box">
               <h3>Launch</h3>
               <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -210,17 +217,22 @@ const loggedIn = Auth.loggedIn();
               </p>
             </div>
           </div>
+
+          <div className="line-2 hide"></div>
+
         </div>
       </section>
 
       {/* Section D */}
       <section className="section-d flex-columns">
+        
         <div className="row">
           <div className="column">
             <div className="column-1">
             <img className="astronault" src={astronaultImg}/>
             </div>
           </div>
+
           <div className="column">
             <div className="column-2 bg-primary">
               <h4>Wanna read about other people experiences?</h4>
