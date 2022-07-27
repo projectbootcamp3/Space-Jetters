@@ -1,6 +1,7 @@
 {
   "scripts": {
     "start": "node server.js",
+    "startAuth": "nodemon authServer.js",
     "watch": "nodemon",
     "seed": "node seeders/index.js"
   },

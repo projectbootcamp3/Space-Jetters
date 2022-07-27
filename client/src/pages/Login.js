@@ -6,6 +6,7 @@ import Auth from '../utils/auth';
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN_USER);
+  const [validated] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -21,44 +22,50 @@ const Login = (props) => {
 
     try {
       const { data } = await login({
-        variables: { ...formState }
+        variables: { ...formState },
       });
-    
+
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
     }
-  }
+
+    // clear form values
+    setFormState({
+      email: '',
+      password: '',
+    });
+  };
 
   return (
     <main className="main">
-        <div className="login-container">
+      <div className="login-container">
         <h2 className="sub-title">Login</h2>
-            <form onSubmit={handleFormSubmit}>
-              <input
-                className="form-input"
-                placeholder="Your email"
-                name="email"
-                type="email"
-                id="email"
-                value={formState.email}
-                onChange={handleChange}
-              />
-              <input
-                className="form-input"
-                placeholder="******"
-                name="password"
-                type="password"
-                id="password"
-                value={formState.password}
-                onChange={handleChange}
-              />
-              <button className="btn-login" type="submit">
-                Login
-              </button>
-            </form>
-            {error && <div>Login failed</div>}
-          </div>
+        <form noValidate validated={validated} onSubmit={handleFormSubmit}>
+          <input
+            className="form-input"
+            placeholder="Your email"
+            name="email"
+            type="email"
+            id="email"
+            value={formState.email}
+            onChange={handleChange}
+          />
+          <input
+            className="form-input"
+            placeholder="******"
+            name="password"
+            type="password"
+            id="password"
+            value={formState.password}
+            onChange={handleChange}
+          />
+          <button className="btn-login" type="submit">
+            Login
+          </button>
+        </form>
+        {error && <div>Login failed 🚫</div>}
+      </div>
     </main>
   );
 };
