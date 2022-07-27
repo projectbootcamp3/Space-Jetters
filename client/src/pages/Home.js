@@ -98,7 +98,7 @@ const Home = () => {
                 {/* First */}
                 <div>
                   <div className="circle-box">
-                    <img className=" fa-4x circle-box-img my-2" src={testimonial1} />
+                    <img alt="" className=" fa-4x circle-box-img my-2" src={testimonial1} />
                     <div className="process-step"><FontAwesomeIcon icon={faStar} /></div>
                   </div>
                   <h3 className="p-2">Leon Milles</h3>
@@ -110,7 +110,7 @@ const Home = () => {
                 {/* Second */}
                 <div>
                   <div className="circle-box">
-                    <img className=" fa-4x circle-box-img my-2" src={testimonial2} />
+                    <img alt="" className=" fa-4x circle-box-img my-2" src={testimonial2} />
                     <div className="process-step"><FontAwesomeIcon icon={faStar} /></div>
                   </div>
                   <h3 className="p-2">Tayeon Rose</h3>
@@ -122,7 +122,7 @@ const Home = () => {
                 {/* Third */}
                 <div className="box">
                   <div className="circle-box">
-                    <img className=" fa-4x circle-box-img my-2" src={testimonial3} />
+                    <img alt="" className=" fa-4x circle-box-img my-2" src={testimonial3} />
                     <div className="process-step"><FontAwesomeIcon icon={faStar} /></div>
                   </div>
                   <h3 className="p-2">Anna Louise</h3>
@@ -134,7 +134,7 @@ const Home = () => {
                 {/* Fourth */}
                 <div>
                   <div className="circle-box">
-                    <img className=" fa-4x circle-box-img my-2" src={testimonial4} />
+                    <img alt="" className=" fa-4x circle-box-img my-2" src={testimonial4} />
                     <div className="process-step"><FontAwesomeIcon icon={faStar} /></div>
                   </div>
                   <h3 className="p-2">Michael Phillip</h3>
@@ -197,7 +197,7 @@ const Home = () => {
         <div className="row">
           <div className="column">
             <div className="column-1">
-              <img className="astronault" src={astronaultImg} />
+              <img alt="" className="astronault" src={astronaultImg} />
             </div>
           </div>
           <div className="column">
@@ -207,7 +207,7 @@ const Home = () => {
               <p>
                 Flying with <span className="highlight">SpaceJetters</span>, has given many people across the world the greatest moments in their life. You can read what they see and share your thoughts as well.
               </p>
-              <a href="#" className="btn-secondary">
+              <a href="/" className="btn-secondary">
                 read here
               </a>
             </div>

@@ -30,7 +30,7 @@ const Destinations = () => {
         <div className="row">
           <div className="column">
             <div className="column-1">
-              <img className="astronault" src={destination1} />
+              <img alt='' className="astronault" src={destination1} />
             </div>
           </div>
           <div className="column">
@@ -52,7 +52,7 @@ const Destinations = () => {
         <div className="row">
           <div className="column">
             <div className="column-1">
-              <img className="astronault" src={destination2} />
+              <img alt='' className="astronault" src={destination2} />
             </div>
           </div>
           <div className="column">
@@ -74,7 +74,7 @@ const Destinations = () => {
         <div className="row">
           <div className="column">
             <div className="column-1">
-              <img className="astronault" src={destination3} />
+              <img alt='' className="astronault" src={destination3} />
             </div>
           </div>
           <div className="column">
@@ -97,7 +97,7 @@ const Destinations = () => {
         <div className="row">
           <div className="column">
             <div className="column-1">
-              <img className="astronault" src={destination4} />
+              <img alt='' className="astronault" src={destination4} />
             </div>
           </div>
           <div className="column">
@@ -120,7 +120,7 @@ const Destinations = () => {
         <div className="row">
           <div className="column">
             <div className="column-1">
-              <img className="astronault" src={destination5} />
+              <img alt='' className="astronault" src={destination5} />
             </div>
           </div>
           <div className="column">
