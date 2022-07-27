@@ -169,7 +169,7 @@ const Home = () => {
           </div>
           <div className="line-2 hide"></div>
           <div className="icon-box">
-            <div className="blueIcon"> <i class="fa-solid fa-chalkboard-user"></i></div>
+            <div className="blueIcon"> <i className="fa-solid fa-chalkboard-user"></i></div>
             <div >
               <h3>Prepare and Study</h3>
               <p>
