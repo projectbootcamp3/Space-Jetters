@@ -8,12 +8,8 @@ const Header = () => {
         event.preventDefault();
         Auth.logout();
       };
-   
+      
 
-    
-
-
-   
     return (
         <header className="header">
         <div className="header-subcontainer">

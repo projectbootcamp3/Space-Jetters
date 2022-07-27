@@ -50,11 +50,13 @@ const client = new ApolloClient({
 });
 
 function App() {
+ 
   return (
     <ApolloProvider client={client}>
       <Router>
         <div>
-        <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
+        <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'}
+        />
           <Header />
           <div className="App hide" id="outer-container">
         </div>

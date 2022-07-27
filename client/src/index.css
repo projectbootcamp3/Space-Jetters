@@ -620,6 +620,7 @@ ul li{
   height: 20px;
   left: 36px;
   top: 20px;
+  display: none;
 }
 
 /* Color/shape of burger icon bars */
@@ -695,9 +696,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
   color: #ffffff;
 }
 
-.hide{
-  display: none;
-}
 
 .burger-nav{
   display: flex;
@@ -710,6 +708,34 @@ Note: Beware of modifying this element as it can break the animations - you shou
   font-size: 25px;
   color: #fff;
 }
+
+.hide{
+  display: none;
+}
+
+.burger-nav{
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+.disappear{
+  transform: translate(-100%, 0);
+  
+}
+
+#hidden{
+  border: none;
+  background-color: transparent;
+  width: 20px;
+  z-index: 2000;
+  
+}
+
+.show{
+  transform: translate(100%, 0);
+}
+
 /*Media queries*/
 @media only screen and (max-width: 768px) {
   .hide{
@@ -726,5 +752,9 @@ Note: Beware of modifying this element as it can break the animations - you shou
   }
   .nav {
     display: none;
+  }
+
+  .bm-burger-button{
+    display: block;
   }
 }
