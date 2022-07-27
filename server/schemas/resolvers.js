@@ -88,10 +88,10 @@ const resolvers = {
 
       return { token, user };
     },
-    saveMission: (parent, { destination, departureDate, tripDuration }) => {
-      const data = { destination, departureDate, tripDuration }
-      const mission = new Mission(data);
-      return mission.save();
+    addMission: (parent, args) => {
+      const mission = new Mission(args);
+      // return mission.save();
+      return { mission }
     }
   }
 };
