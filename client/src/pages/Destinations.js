@@ -17,11 +17,11 @@ const Destinations = () => {
         </div>
         <div>
           <ul className="flex">
-            <li> MOON  *</li>
-            <li> MARS  *</li>
-            <li> EUROPA  *</li>
-            <li> TITAN  *</li>
-            <li>SPACE STATION</li>
+            <a href='#moon' className=''><li> MOON  *</li></a>
+            <a href='#mars' className=''><li> MARS  *</li></a>
+            <a href='#europa' className=''><li> EUROPA  *</li></a>
+            <a href='#titan' className=''><li> TITAN  *</li></a>
+            <a href='#spacestation' className=''><li>SPACE STATION</li></a>
           </ul>
         </div>
       </div>
@@ -30,7 +30,7 @@ const Destinations = () => {
         <div className="row">
           <div className="column">
             <div className="column-1">
-              <img alt='' className="astronault" src={destination1} />
+              <img id='moon' alt='Moon' className="astronault" src={destination1} />
             </div>
           </div>
           <div className="column">
@@ -45,14 +45,14 @@ const Destinations = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section >
       <div className="shadow-effect-2"></div>
       <div className="shadow-effect-1"></div>
       <section className="destinations flex-columns">
         <div className="row">
           <div className="column">
             <div className="column-1">
-              <img alt='' className="astronault" src={destination2} />
+              <img id='mars' alt='Mars' className="astronault" src={destination2} />
             </div>
           </div>
           <div className="column">
@@ -74,7 +74,7 @@ const Destinations = () => {
         <div className="row">
           <div className="column">
             <div className="column-1">
-              <img alt='' className="astronault" src={destination3} />
+              <img id='europa' alt='Europa' className="astronault" src={destination3} />
             </div>
           </div>
           <div className="column">
@@ -97,7 +97,7 @@ const Destinations = () => {
         <div className="row">
           <div className="column">
             <div className="column-1">
-              <img alt='' className="astronault" src={destination4} />
+              <img id='titan' alt='Titan' className="astronault" src={destination4} />
             </div>
           </div>
           <div className="column">
@@ -120,7 +120,7 @@ const Destinations = () => {
         <div className="row">
           <div className="column">
             <div className="column-1">
-              <img alt='' className="astronault" src={destination5} />
+              <img id='spacestation' alt='Space Station' className="astronault" src={destination5} />
             </div>
           </div>
           <div className="column">
@@ -136,7 +136,7 @@ const Destinations = () => {
           </div>
         </div>
       </section>
-    </div>
+    </div >
   );
 };
 export default Destinations;

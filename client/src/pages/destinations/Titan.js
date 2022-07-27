@@ -9,8 +9,8 @@ const Titan = () => {
         <h2 className="sub-title desti-title">
           Titan
         </h2>
-        <div className="line-2"></div>
       </div>
+      <div className="line-2"></div>
       <section className="destinations-info">
         {/* Destination info*/}
         <div className="dest-info-box">
@@ -47,9 +47,9 @@ const Titan = () => {
             <li>* Tour through multiple tourism places and views</li>
             <li>  * Insurance</li>
           </ul>
+          <div className="line-2"></div>
         </div>
       </section>
-      <div className="line-2"></div>
 
       {/* Inputs */}
       <div>
