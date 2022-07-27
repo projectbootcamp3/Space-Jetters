@@ -968,3 +968,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
   }
 
 };
+.contact{
+  text-align: center;
+}
