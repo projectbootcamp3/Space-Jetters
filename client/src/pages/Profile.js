@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { getDestinationsFromApi } from "../utils/API";
 
 const Profile = () => {
+  useEffect(() => {
+    getDestinationsFromApi();
+  })
   return (
     <div>
       <div className="title-box">

@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink, gql } from '@apollo/client';
 
 const httpLink = createHttpLink({
-  uri: 'https://flyby-gateway.herokuapp.com/',
+  uri: 'http://localhost:3001/graphql',
 });
 
 const client = new ApolloClient({
@@ -16,17 +16,17 @@ const client = new ApolloClient({
 });
 
 // const client = ...
-client
-  .query({
-    query: gql`
-      query GetLocations {
-        rockets {
-          name
-        }
-      }
-    `,
-  })
-  .then((result) => console.log(result));
+// client
+//   .query({
+//     query: gql`
+//       query GetLocations {
+//         rockets {
+//           name
+//         }
+//       }
+//     `,
+//   })
+//   .then((result) => console.log(result));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

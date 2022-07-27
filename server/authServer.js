@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 
 const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');
-const PORT = process.env.PORT || 4000;
+const PORT = 4000;
 
 const startServer = async () => {
   const server = new ApolloServer({
@@ -27,13 +27,11 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
-};
-
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 };
+
+console.log('REFRESH TOKEN:', process.env.REFRESH_TOKEN_SECRET)
 
 const destinations = [
   {
@@ -56,23 +54,50 @@ const destinations = [
   }
 ]
 
-app.get('/destinations', authMiddleware, (req, res) => {
-  res.json(destinations.filter(destination => destination.username === req.user.name))
+// ONLY LOGIN, LOGOUT, REFRESH TOKENS ON THIS SERVER
+
+let refreshTokens = []
+
+app.post('/token', (req, res) => {
+  const refreshToken = req.body.token;
+  if (refreshToken === null) {
+    return res.sendStatus(401);
+  }
+  if (!refreshTokens.includes(refreshToken)) {
+    return res.sendStatus(403)
+  }
+  jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, user) => {
+    if (err) {
+      return res.sendStatus(403);
+    }
+    const accessToken = generateAccessToken({ name: user.name });
+    res.json(accessToken);
+  })
 })
 
-// function authenticateToken(req, res, next) {
-//   const authHeader = req.headers['authorization'];
-//   const token = authHeader && authHeader.split(' ').pop().trim();
-//   // const token = authHeader && authHeader.split(' ')[1]
-//   if (token === null) return res.sendStatus(401)
+app.get('/destinations', (req, res) => {
+  res.json(destinations.filter(destination => destination.username === req.user.name))
+});
 
-//   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-//     if (err) return res.sendStatus(403)
-//     req.user = user
-//     console.log('REQUESTED USER: ', req.user);
-//     next();
-//   })
-// };
+app.delete('/logout', (req, res) => {
+  refreshTokens = refreshTokens.filter(token => token !== req.body.token);
+  res.sendStatus(204);
+});
+
+app.post('/login', (req, res) => {
+  // Authenticate user
+  const username = req.body.username
+  const user = { name: username }
+  // console.log(user)
+  const accessToken = generateAccessToken(user);
+  const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET)
+  refreshTokens.push(refreshToken);
+  return userTokens = res.json({ accessToken: accessToken, refreshToken: refreshToken })
+});
+
+function generateAccessToken(user) {
+  return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '3h' })
+};
 
 app.use(routes);
 
