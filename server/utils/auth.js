@@ -38,16 +38,14 @@ module.exports = {
 
     try {
       // returning the req.body here results in a graphQL query... need to figure out why it's the rockets query
-      console.log('...the original request from before: ', req.body)
       const { data } = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, { maxAge: expiration });
-      console.log('Here is the verified data: ', data)
+      console.log(`Here is ${req.user.username}'s the verified data: `, data)
       req.user = data;
-      console.log('Here is the user request: ', req.user)
     } catch {
       console.log('🚫 Tried to verify the token, but it is invalid!');
     }
 
-    console.log('🔐 Auth Request BODY: ', req.body);
+    // console.log('🔐 Auth Request BODY: ', req.body);
     return req;
   },
   signToken: function ({ username, email, _id }) {

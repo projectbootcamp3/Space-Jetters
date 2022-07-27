@@ -2,6 +2,12 @@ const { AuthenticationError } = require('apollo-server-express');
 const { User, Mission, Rocket } = require('../models');
 const { signToken, authenticateToken } = require('../utils/auth');
 
+const fakeDB = [
+  {
+    "mission": null
+  }
+];
+
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
@@ -40,13 +46,16 @@ const resolvers = {
     //   console.log(token);
     //   return token;
     // }
+    missions: async (parent, args) => {
+      return Mission.find().sort({ createdAt: -1 });
+    },
+    getMission: ({ msn }) => fakeDB.msn
   },
 
   Mutation: {
     addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
-
       return { token, user };
     },
     login: async (parent, { email, password }) => {
@@ -64,7 +73,7 @@ const resolvers = {
       }
 
       const token = signToken(user);
-      console.log('🪙  Now the user has a SIGNED TOKEN to use ', token);
+      console.log(`🪙  Now ${user.username} has a SIGNED TOKEN to use: `, token);
       return { token, user };
     },
     addUser: async (parent, args) => {
@@ -74,8 +83,10 @@ const resolvers = {
 
       return { token, user };
     },
-    missions: async () => {
-      return Mission.find().sort({ createdAt: -1 });
+    saveMission: (parent, { destination, departureDate, tripDuration }) => {
+      const data = { destination, departureDate, tripDuration }
+      const mission = new Mission(data);
+      return mission.save();
     }
   }
 };

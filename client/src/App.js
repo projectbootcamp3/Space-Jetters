@@ -23,21 +23,11 @@ import Contact from "./pages/Contact";
 import NoMatch from "./pages/NoMatch";
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
-});
-
-const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    },
-  };
+  uri: 'http://localhost:3001/graphql',
 });
 
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  link: httpLink,
   cache: new InMemoryCache(),
 });
 
@@ -56,7 +46,7 @@ function App() {
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/profile/:username?" component={Profile} />
-              
+
               <Route component={NoMatch} />
             </Switch>
           </div>
