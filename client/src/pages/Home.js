@@ -2,36 +2,30 @@ import React from "react";
 import Auth from "../utils/auth";
 import heroImage from "../assets/home-images/space-station.jpg"
 import astronaultImg from "../assets/home-images/astronault.jpg"
-
 import testimonial1 from "../assets/testimonials/testimonial-1.jpg"
 import testimonial2 from "../assets/testimonials/testimonial-2.jpg"
 import testimonial3 from "../assets/testimonials/testimonial-3.jpg"
 import testimonial4 from "../assets/testimonials/testimonial-4.jpg"
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faCalendar, faRocket } from "@fortawesome/free-solid-svg-icons";
-
-
-
-
+import { Link } from "react-router-dom";
 const Home = () => {
-
   const loggedIn = Auth.loggedIn();
   return (
-    <main>
+    <main id="main">
       <div className="hero_image"
         style={{
           backgroundImage: `url(${heroImage})`,
           backgroundSize: "cover",
           height: "100vh",
           backgroundPosition: "center",
-
         }}>
         {loggedIn && (
           <section className="section-hero">
           </section>
         )}
         {/* MAIN SECTION WITH HERO IMAGE*/}
+        <div className="hidden-box"><h1 className="hide hidden-title">Welcome to the <span className="highlight">future</span> of tourism.</h1></div>
         <div className="main-section">
           <h1>The <span className="highlight"> best experience</span> in your life will come true with SpaceJetters!</h1>
           <article>
@@ -39,15 +33,21 @@ const Home = () => {
               SpaceJetters is a travel agency company that allows the customers to travel outside Earth to other places in the Solar System.
             </p>
           </article>
-          <div>
-            <a href="#" className="btn-secondary"> explore</a>
-            <a href="#" className="btn-3"> about us</a>
+          <div className="btn-box">
+            {Auth.loggedIn() ? (
+              <>
+                <Link to="/destinations" className="btn-secondary link">explore</Link>
+                <Link to="/rockets" className="btn-3">rockets</Link>
+              </>
+            ) : (
+              <>
+                <Link to="/login" className="btn-secondary">explore</Link>
+                <Link to="/login" className="btn-3">rockets</Link>
+              </>
+            )}
           </div>
         </div>
       </div>
-
-
-
       <div className="section-a-wrapper">
         <section className="section section-a">
           <div className="subtitle-container">
@@ -55,17 +55,30 @@ const Home = () => {
             <h2 className="sub-title">Secure and Affordable </h2>
             <div className="line"></div>
           </div>
-
           <div className="text-container">
             <p> Flying outside Earth with SpaceJetters will provide you an amazing and  <span className="highlight">breathtaking experience</span> with  <span className="highlight">affordable prices</span>. Our team is well prepared to make your trip <span className="highlight">secure</span> and provide you with all the guidance and information you need. Any questions? Follow the contact us button below:
             </p>
+            <div></div>
             <div>
-              <a href="#" className="btn-primary"> Contact Us<span className="btn-span"></span></a>
+              {Auth.loggedIn() ? (
+                <>
+                  <button className="btn-primary" >
+                    <Link to="/contact" className="link">Contacts Us</Link>
+                    <span className="btn-span"></span>
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button className="btn-primary">
+                    <Link to="/login">Contacts Us</Link>
+                    <span className="btn-span"></span>
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </section>
       </div>
-
       {/*Section-B Testimonials*/}
       <div className="section-b-wrapper">
         <section className="section section-b">
@@ -75,7 +88,6 @@ const Home = () => {
             <h2 className="sub-title">Testimonials</h2>
             <div className="line"></div>
           </div>
-
           <div id="home-b" className="text-center py-2">
             <div className="container">
               <p className="lead">
@@ -89,42 +101,35 @@ const Home = () => {
                     <img className=" fa-4x circle-box-img my-2" src={testimonial1} />
                     <div className="process-step"><FontAwesomeIcon icon={faStar} /></div>
                   </div>
-
                   <h3 className="p-2">Leon Milles</h3>
                   <p className="p-2">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
                     voluptas laborum repellendus dolorum! Harum, cupiditate.
                   </p>
                 </div>
-
                 {/* Second */}
                 <div>
                   <div className="circle-box">
                     <img className=" fa-4x circle-box-img my-2" src={testimonial2} />
                     <div className="process-step"><FontAwesomeIcon icon={faStar} /></div>
                   </div>
-
                   <h3 className="p-2">Tayeon Rose</h3>
                   <p className="p-2">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
                     voluptas laborum repellendus dolorum! Harum, cupiditate.
                   </p>
                 </div>
-
                 {/* Third */}
                 <div className="box">
                   <div className="circle-box">
                     <img className=" fa-4x circle-box-img my-2" src={testimonial3} />
                     <div className="process-step"><FontAwesomeIcon icon={faStar} /></div>
                   </div>
-
-
                   <h3 className="p-2">Anna Louise</h3>
                   <p className="p-2">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
                     voluptas laborum repellendus dolorum! Harum, cupiditate.
                   </p>
-
                 </div>
                 {/* Fourth */}
                 <div>
@@ -132,7 +137,6 @@ const Home = () => {
                     <img className=" fa-4x circle-box-img my-2" src={testimonial4} />
                     <div className="process-step"><FontAwesomeIcon icon={faStar} /></div>
                   </div>
-
                   <h3 className="p-2">Michael Phillip</h3>
                   <p className="p-2">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
@@ -144,8 +148,6 @@ const Home = () => {
           </div>
         </section>
       </div>
-
-
       {/* Section C Services */}
       <section id="section-c" className="icons bg-light">
         <div className="subtitle-container">
@@ -154,7 +156,8 @@ const Home = () => {
           <div className="line"></div>
         </div>
         <div className="flex-items">
-          <div>
+          <div className="line-2 hide"></div>
+          <div className="icon-box">
             <div className="blueIcon"><FontAwesomeIcon icon={faCalendar} /></div>
             <div>
               <h3>Choose the date</h3>
@@ -164,9 +167,10 @@ const Home = () => {
               </p>
             </div>
           </div>
-          <div>
-            <div className="blueIcon"> <i className="fa-solid fa-chalkboard-user"></i></div>
-            <div>
+          <div className="line-2 hide"></div>
+          <div className="icon-box">
+            <div className="blueIcon"> <i class="fa-solid fa-chalkboard-user"></i></div>
+            <div >
               <h3>Prepare and Study</h3>
               <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -174,9 +178,10 @@ const Home = () => {
               </p>
             </div>
           </div>
+          <div className="line-2 hide"></div>
           <div>
             <div className="blueIcon"><FontAwesomeIcon icon={faRocket} /></div>
-            <div>
+            <div className="icon-box">
               <h3>Launch</h3>
               <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -184,9 +189,9 @@ const Home = () => {
               </p>
             </div>
           </div>
+          <div className="line-2 hide"></div>
         </div>
       </section>
-
       {/* Section D */}
       <section className="section-d flex-columns">
         <div className="row">
@@ -212,5 +217,4 @@ const Home = () => {
     </main>
   );
 };
-
 export default Home;

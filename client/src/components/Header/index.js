@@ -1,21 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
-
 const Header = () => {
   const logout = (event) => {
-    console.log('LOGOUT EVENT: ', event)
-
     event.preventDefault();
     Auth.logout();
-    console.log('👽 Abducted!......you logged out.')
   };
-
   return (
     <header className="header">
       <div className="header-subcontainer">
         <Link to="/">
-          <div className="logo-container"><h1>SpaceJetters</h1></div>
+          <div className="logo-container"><h1 className="logo-title">SpaceJetters</h1></div>
         </Link>
         <nav className="nav" id="nav">
           {Auth.loggedIn() ? (
@@ -24,12 +19,15 @@ const Header = () => {
               <Link to="/rockets">Rockets</Link>
               <Link to="/contact">Contact</Link>
               <Link to="/profile">Profile</Link>
-              <a href="/" onClick={logout}>Logout</a>
+              <a href="/" onClick={logout}>
+                Logout
+              </a>
             </>
           ) : (
             <>
               <Link to="/login">Login</Link>
               <Link to="/signup">Signup</Link>
+              <Link to="/search">Search Images</Link>
             </>
           )}
         </nav>
@@ -37,5 +35,4 @@ const Header = () => {
     </header>
   );
 };
-
 export default Header;

@@ -21,6 +21,14 @@ import Destinations from "./pages/Destinations";
 import Rockets from "./pages/Rockets";
 import Contact from "./pages/Contact";
 import NoMatch from "./pages/NoMatch";
+import Checkout from "./pages/Checkout";
+import Sidebar from "./components/Sidebar";
+// Destinations
+import Moon from "./pages/destinations/Moon";
+import Mars from "./pages/destinations/Mars";
+import Europa from "./pages/destinations/Europa";
+import SpaceStation from "./pages/destinations/SpaceStation";
+import Titan from "./pages/destinations/Titan";
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -32,11 +40,16 @@ const client = new ApolloClient({
 });
 
 function App() {
+
   return (
     <ApolloProvider client={client}>
       <Router>
         <div>
+          <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'}
+          />
           <Header />
+          <div className="App hide" id="outer-container">
+          </div>
           <div className="container">
             <Switch>
               <Route exact path="/" component={Home} />
@@ -46,7 +59,12 @@ function App() {
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/profile/:username?" component={Profile} />
-
+              <Route path="/destinations/moon" component={Moon} />
+              <Route path="/destinations/mars" component={Mars} />
+              <Route path="/destinations/europa" component={Europa} />
+              <Route path="/destinations/titan" component={Titan} />
+              <Route path="/destinations/spacestation" component={SpaceStation} />
+              <Route path="/checkout" component={Checkout} />
               <Route component={NoMatch} />
             </Switch>
           </div>
