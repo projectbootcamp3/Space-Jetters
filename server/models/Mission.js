@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema } = require("mongoose");
 
 const missionSchema = new Schema({
   destination: {
@@ -12,13 +12,8 @@ const missionSchema = new Schema({
   tripDuration: {
     type: String,
     required: true,
-  },
-  // imageUrl: {
-  //   type: String,
-  //   required: true,
-  // },
+  }
 });
 
-const Mission = model("Mission", missionSchema);
 
-module.exports = Mission;
+module.exports = missionSchema;

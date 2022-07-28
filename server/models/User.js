@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const missionSchema = require("./Mission")
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema(
@@ -20,6 +21,7 @@ const userSchema = new Schema(
       required: true,
       minlength: 5
     },
+    missions: [missionSchema]
   },
   {
     toJSON: {

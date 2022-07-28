@@ -2,11 +2,6 @@ const { AuthenticationError } = require('apollo-server-express');
 const { User, Mission, Rocket, Destination } = require('../models');
 const { signToken, authenticateToken } = require('../utils/auth');
 
-const fakeDB = [
-  {
-    "mission": null
-  }
-];
 
 const resolvers = {
   Query: {
@@ -41,20 +36,13 @@ const resolvers = {
       console.log('DESTINATIONS', result);
       return result;
     },
-    // getDestinations(_, { req }) {
-    //   let token;
-    //   try {
-    //     token = jwt.verify(req.request.headers.authorization, process.env.ACCESS_TOKEN_SECRET);
-    //   } catch (e) {
-    //     return null;
-    //   }
-    //   console.log(token);
-    //   return token;
-    // }
-    missions: async (parent, args) => {
-      return Mission.find().sort({ createdAt: -1 });
+    missions: async (parent, { _id }) => {
+      const params = _id ? { _id } : {}
+      return Mission.find(params).sort({ createdAt: -1 });
     },
-    getMission: ({ msn }) => fakeDB.msn
+    mission: async (parent, { _id }) => {
+      return Mission.findOne({ _id })
+    }
   },
 
   Mutation: {
@@ -88,10 +76,15 @@ const resolvers = {
 
       return { token, user };
     },
-    addMission: (parent, args) => {
-      const mission = new Mission(args);
-      // return mission.save();
-      return { mission }
+    addMission: async (parent, {userid, missionInput}, context) => {
+      if (context.user) {
+      const missionData = {destination: missionInput.destination, tripDuration: missionInput.tripDuration, departureDate: missionInput.departureDate}
+      return User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $push: { missions: missionData } },
+            { new: true }
+          )
+        }
     }
   }
 };
