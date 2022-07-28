@@ -58,6 +58,7 @@ const typeDefs = gql`
     user(username: String!): User
     rocket(rocketId: Int!): Rocket
     rockets: [Rocket]
+    mission: Mission
     missions: [Mission]
     destinations: [Destination]
   }

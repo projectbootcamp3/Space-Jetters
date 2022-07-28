@@ -4,83 +4,81 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    me: async (_, args, context) => {
+    me: async (parent, args, context) => {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
 
-        console.log('Here is MY user data: ', userData)
         return userData;
       }
 
       throw new AuthenticationError('Not logged in');
     },
-    user: async (_, { username }) => {
-      console.log('🔍 Finding user: ', username);
+    user: async (parent, { username }) => {
       return User.findOne({ username })
         .select('-__v -password')
     },
-    users: async (_, args) => {
-      console.log('🔍 Finding ALL users: ');
-      return User.find({})
-        .select('-__v -password')
-    },
-    rocket: async (_, { rocketId }) => {
-      return await Rocket.findOne({});
-    },
-    rockets: async (_, args) => {
+    rockets: async (parent, args) => {
       const result = await Rocket.find({});
-      console.log('ROCKETS', result);
+      console.log(result);
       return result;
     },
-    destinations: async (_, args) => {
+    users: async (parent, args) => {
+      const result = await User.find({});
+      console.log(result);
+      return result;
+    },
+    destinations: async (parent, args) => {
       const result = await Destination.find({});
-      console.log('DESTINATIONS', result);
+      console.log(result);
       return result;
     },
-    missions: async (_, args) => {
-      return Mission.find().sort({ createdAt: -1 });
+    rocket: async (parent, { name }) => {
+      return Rocket.findOne({ name })
     },
+    mission: async (parent, { _id }) => {
+      return Mission.findOne({ _id })
+    },
+    missions: async () => {
+      return Mission.find({})
+    }
   },
 
   Mutation: {
-    signup: async (_, args) => {
+    signup: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
+
       return { token, user };
     },
-    login: async (_, { email, password }) => {
+    login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError('Incorrect credentials! 🚫');
+        throw new AuthenticationError('Incorrect credentials');
       }
 
       const correctPw = await user.isCorrectPassword(password);
-      console.log('🔑 The given LOGIN password was correct? ', correctPw);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect password! 🚫');
+        throw new AuthenticationError('Incorrect credentials');
       }
 
       const token = signToken(user);
-      console.log(`🪙  Now ${user.username} has a SIGNED TOKEN to use: `, token);
       return { token, user };
     },
-    addMission: async (_, args, context) => {
+    addMission: async (parent, { missionId }, context) => {
       if (context.user) {
-        const mission = await Mission.create({ ...args, username: context.user.username });
-
-        await User.findByIdAndUpdate(
+        const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $push: { missions: mission._id } },
+          { $addToSet: { missions: missionId } },
           { new: true }
-        );
-        console.log(`➕ Added a mission to ${username}'s missions.`);
-        return mission;
+        ).populate('missions');
+
+        return updatedUser;
       }
     }
   }
-};
+}
 
 module.exports = resolvers;
