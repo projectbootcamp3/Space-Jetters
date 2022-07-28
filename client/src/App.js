@@ -22,6 +22,7 @@ import Rockets from "./pages/Rockets";
 import Contact from "./pages/Contact";
 import NoMatch from "./pages/NoMatch";
 import Checkout from "./pages/Checkout";
+import Nasa from "./pages/Nasa";
 import Sidebar from "./components/Sidebar";
 // Destinations
 import Moon from "./pages/destinations/Moon";
@@ -65,6 +66,7 @@ function App() {
               <Route path="/destinations/titan" component={Titan} />
               <Route path="/destinations/spacestation" component={SpaceStation} />
               <Route path="/checkout" component={Checkout} />
+              <Route path="/nasaImages" component={Nasa} />
               <Route component={NoMatch} />
             </Switch>
           </div>

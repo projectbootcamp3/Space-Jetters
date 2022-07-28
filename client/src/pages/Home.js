@@ -1,7 +1,7 @@
 import React from "react";
 import Auth from "../utils/auth";
 import heroImage from "../assets/home-images/space-station.jpg"
-import astronaultImg from "../assets/home-images/astronault.jpg"
+import spaceImg from "../assets/home-images/section-d-img.jpg"
 import testimonial1 from "../assets/testimonials/testimonial-1.jpg"
 import testimonial2 from "../assets/testimonials/testimonial-2.jpg"
 import testimonial3 from "../assets/testimonials/testimonial-3.jpg"
@@ -26,27 +26,31 @@ const Home = () => {
         )}
         {/* MAIN SECTION WITH HERO IMAGE*/}
         <div className="hidden-box"><h1 className="hide hidden-title">Welcome to the <span className="highlight">future</span> of tourism.</h1></div>
-        <div className="main-section">
-          <h1>The <span className="highlight"> best experience</span> in your life will come true with SpaceJetters!</h1>
-          <article>
-            <p>
-              SpaceJetters is a travel agency company that allows the customers to travel outside Earth to other places in the Solar System.
-            </p>
-          </article>
-          <div className="btn-box">
-            {Auth.loggedIn() ? (
-              <>
-                <Link to="/destinations" className="btn-secondary link">explore</Link>
-                <Link to="/rockets" className="btn-3">rockets</Link>
-              </>
-            ) : (
-              <>
-                <Link to="/login" className="btn-secondary">explore</Link>
-                <Link to="/login" className="btn-3">rockets</Link>
-              </>
-            )}
+        <div className="main-section-wrapper">
+          <div className="inv-box"></div>
+          <div className="main-section">
+            <h1>The <span className="highlight"> best experience</span> in your life will come true with SpaceJetters!</h1>
+            <article>
+              <p>
+                SpaceJetters is a travel agency company that allows the customers to travel outside Earth to other places in the Solar System.
+              </p>
+            </article>
+            <div className="btn-box">
+              {Auth.loggedIn() ? (
+                <>
+                  <Link to="/destinations" className="btn-secondary link">explore</Link>
+                  <Link to="/rockets" className="btn-3">rockets</Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/login" className="btn-secondary">explore</Link>
+                  <Link to="/login" className="btn-3">rockets</Link>
+                </>
+              )}
+            </div>
           </div>
         </div>
+        
       </div>
       <div className="section-a-wrapper">
         <section className="section section-a">
@@ -197,18 +201,18 @@ const Home = () => {
         <div className="row">
           <div className="column">
             <div className="column-1">
-              <img alt="" className="astronault" src={astronaultImg} />
+              <img alt="" className="astronault" src={spaceImg} />
             </div>
           </div>
           <div className="column">
             <div className="column-2 bg-primary">
-              <h4>Wanna read about other people experiences?</h4>
-              <h2>See what other space travellers say </h2>
+              <h4>Feel curious about the Universe?</h4>
+              <h2>Learn more about the Universe with us!</h2>
               <p>
-                Flying with <span className="highlight">SpaceJetters</span>, has given many people across the world the greatest moments in their life. You can read what they see and share your thoughts as well.
+                Flying with <span className="highlight">SpaceJetters</span>, has given many people across the world the greatest moments in their life, but they also learn a lot from our services. Try our Nasa API and get a different image with description from NASA's telescope every day!
               </p>
-              <a href="/" className="btn-secondary">
-                read here
+              <a href="/nasaImages" className="btn-secondary">
+                check here
               </a>
             </div>
           </div>
