@@ -1,9 +1,8 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
-const routes = require('./routes/index');
 const db = require('./config/connection');
-const jwt = require('jsonwebtoken');
+const stripe = require('stripe')('sk_test_Hrs6SAopgFPF0bZXSN3f6ELN');
 
 const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');
@@ -34,47 +33,6 @@ if (process.env.NODE_ENV === 'production') {
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 };
-
-const destinations = [
-  {
-    "username": "Matthew",
-    "name": "Matthew",
-    "date": "August 5, 2023",
-    "crew": 4
-  },
-  {
-    "username": "Senthol",
-    "name": "Neptune",
-    "date": "December 1, 2022",
-    "crew": 2
-  },
-  {
-    "username": "Lucca",
-    "name": "Pluto",
-    "date": "January 17, 2025",
-    "crew": 10
-  }
-]
-
-app.get('/destinations', authMiddleware, (req, res) => {
-  res.json(destinations.filter(destination => destination.username === req.user.name))
-})
-
-// function authenticateToken(req, res, next) {
-//   const authHeader = req.headers['authorization'];
-//   const token = authHeader && authHeader.split(' ').pop().trim();
-//   // const token = authHeader && authHeader.split(' ')[1]
-//   if (token === null) return res.sendStatus(401)
-
-//   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-//     if (err) return res.sendStatus(403)
-//     req.user = user
-//     console.log('REQUESTED USER: ', req.user);
-//     next();
-//   })
-// };
-
-app.use(routes);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
