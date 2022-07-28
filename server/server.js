@@ -6,14 +6,14 @@ const db = require('./config/connection');
 const jwt = require('jsonwebtoken');
 
 const { typeDefs, resolvers } = require('./schemas');
-const { authMiddleware } = require('./utils/auth');
+// const { authMiddleware } = require('./utils/auth');
 const PORT = process.env.PORT || 4000;
 
 const startServer = async () => {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
-    context: authMiddleware,
+    // context: authMiddleware,
   });
   await server.start();
   server.applyMiddleware({ app });
@@ -56,7 +56,7 @@ const destinations = [
   }
 ]
 
-app.get('/destinations', authMiddleware, (req, res) => {
+app.get('/destinations',  (req, res) => {
   res.json(destinations.filter(destination => destination.username === req.user.name))
 })
 

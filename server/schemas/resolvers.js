@@ -77,14 +77,14 @@ const resolvers = {
       return { token, user };
     },
     addMission: async (parent, {userid, missionInput}, context) => {
-      if (context.user) {
+      // if (context.user) {
       const missionData = {destination: missionInput.destination, tripDuration: missionInput.tripDuration, departureDate: missionInput.departureDate}
       return User.findOneAndUpdate(
-            { _id: context.user._id },
+            { _id: userid },
             { $push: { missions: missionData } },
             { new: true }
           )
-        }
+        // }
     }
   }
 };
