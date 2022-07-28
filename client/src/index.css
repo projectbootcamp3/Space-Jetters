@@ -425,6 +425,155 @@ padding-top: 25px;
   padding: 20px;
 }
 
+/* -------------------Contact US----------------*/
+
+.contact-wrapper{
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+}
+#contact{
+  background-color: rgba(255, 255, 255, .15);   
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  color: #fff;
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  
+ }
+
+ #contact .line{
+  background-color: #fff;
+ }
+
+ #contact .sub-title{
+  padding-top: 4px;
+ }
+
+ #contact-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+ }
+
+ .flex{
+  display: flex;
+  flex-direction: column;
+ }
+
+ .flex-destinations{
+  display: flex;
+  flex-direction: row;
+
+ }
+
+ .flex label{
+   color:rgb(247, 245, 236);
+   padding: 10px;
+   font-size: 20px;;
+ }
+
+ #contact input{
+  font-size: 20px;;
+  width: 500px;
+  height: 40px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  border-bottom: #fff 1px solid;
+  color: #fff;
+ }
+ 
+ #contact textarea{
+  width: 500px;
+  height: 80px;
+  border-radius: 5px;
+  outline: none;
+  border: #fff 1px solid;
+  font-size: 20px;
+  background-color: transparent;
+  color: #fff;
+ }
+ 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid rgb(255, 255, 255);
+  -webkit-text-fill-color: rgb(201, 193, 193);
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.error-text{
+  font-size: 15px;;
+  padding-top: 5px;
+  color:rgb(255, 0, 0);
+}
+
+.btn-4{
+  text-align: center;
+  background-color: transparent;
+  width: 500px;
+  margin: 0 auto;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-bottom: 25px;;
+
+}
+
+/*-----------ROCKETS--------------*/
+
+.rockets-wrapper{
+  background-color: #000000;
+  color: #fff;
+}
+.rocket{
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.rocket img{
+  border-radius: 25px;
+}
+
+.rocketContainer  .line{
+  background-color: #fff;
+}
+
+.rocket p{
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.rocket h2{
+  padding: 20px 0;
+}
+
+.rocket-img-box{
+  width: 600px;
+}
 
 /*----------Profile-----------*/
 .profile-wrapper{

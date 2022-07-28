@@ -64,8 +64,7 @@ const Rockets = () => {
                       </p>
           </section>
           </div>
-    </div>
-  );
-};
+      </div>)
+}
 
 export default Rockets;
