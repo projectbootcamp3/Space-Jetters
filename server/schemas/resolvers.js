@@ -1,12 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Mission, Rocket, Destination } = require('../models');
-const { signToken, authenticateToken } = require('../utils/auth');
-
-const fakeDB = [
-  {
-    "mission": null
-  }
-];
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -82,6 +76,7 @@ const resolvers = {
           { $push: { missions: mission._id } },
           { new: true }
         );
+        console.log(`➕ Added a mission to ${username}'s missions.`);
         return mission;
       }
     }
