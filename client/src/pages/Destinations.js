@@ -16,12 +16,12 @@ const Destinations = () => {
           </article>
         </div>
         <div>
-          <ul className="flex">
-            <a href='#moon' className=''><li> MOON  *</li></a>
-            <a href='#mars' className=''><li> MARS  *</li></a>
-            <a href='#europa' className=''><li> EUROPA  *</li></a>
-            <a href='#titan' className=''><li> TITAN  *</li></a>
-            <a href='#spacestation' className=''><li>SPACE STATION</li></a>
+          <ul className="flex flex-destinations">
+            <a href='#moon' className='dest'><li> MOON  *</li></a>
+            <a href='#mars' className='dest'><li> MARS  *</li></a>
+            <a href='#europa' className='dest'><li> EUROPA  *</li></a>
+            <a href='#titan' className='dest'><li> TITAN  *</li></a>
+            <a href='#spacestation' className='dest'><li>SPACE STATION</li></a>
           </ul>
         </div>
       </div>
@@ -37,7 +37,7 @@ const Destinations = () => {
             <div className="column-2 bg-primary">
               <h2> MOON</h2>
               <p>
-                The Moon is Earth's only natural satellite. At about one-quarter the diameter of Earth (comparable to the width of Australia),[16] it is the fifth largest satellite in the Solar System, the largest satellite in the Solar System relative to its major planet,[f] and larger than any known dwarf planet. The Moon is a planetary-mass object that formed a differentiated rocky body, making it a satellite planet under the geophysical definitions of the term.[17] It lacks any significant atmosphere, hydrosphere, or magnetic field. Its surface gravity is about one-sixth of Earth's (0.1654 g). Jupiter's moon Io is the only satellite in the Solar System known to have a higher surface gravity and density.
+                The Moon is Earth's only natural satellite. At about one-quarter the diameter of Earth (comparable to the width of Australia), it is the fifth largest satellite in the Solar System, the largest satellite in the Solar System relative to its major planet, and larger than any known dwarf planet. The Moon is a planetary-mass object that formed a differentiated rocky body, making it a satellite planet under the geophysical definitions of the term. It lacks any significant atmosphere, hydrosphere, or magnetic field. Its surface gravity is about one-sixth of Earth's 0.1654 . Jupiter's moon Io is the only satellite in the Solar System known to have a higher surface gravity and density.
               </p>
               <button>
                 <Link to="/destinations/moon" className="btn-secondary">proceed</Link>
