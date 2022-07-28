@@ -28,9 +28,9 @@ async function seedDB() {
 
         // The drop() command destroys all data from a collection.
         // Make sure you run it against proper database and collection.
-        // rocketsCollection.drop();
-        // destinationsCollection.drop();
-        // usersCollection.drop();
+        rocketsCollection.drop();
+        destinationsCollection.drop();
+        usersCollection.drop();
 
         await rocketsCollection.insertMany(rocketData);
         console.log("Rockets seeded! 🚀");

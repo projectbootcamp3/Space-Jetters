@@ -1,21 +1,7 @@
 const jwt = require('jsonwebtoken');
-const secret = 'secretpassword';
 const expiration = '3h';
 
 module.exports = {
-  // authenticateToken: function (req, res, next) {
-  //   const authHeader = req.headers['authorization'];
-  //   const token = authHeader && authHeader.split(' ').pop().trim();
-
-  //   if (token === null) return res.sendStatus(401)
-
-  //   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-  //     if (err) return res.sendStatus(403)
-  //     req.user = user
-  //     console.log('REQUESTED USER: ', req.user);
-  //     next();
-  //   })
-  // },
   authMiddleware: function ({ req }) {
     let token = req.body.token || req.query.token || req.headers.authorization;
 
@@ -37,15 +23,13 @@ module.exports = {
     }
 
     try {
-      // returning the req.body here results in a graphQL query... need to figure out why it's the rockets query
+      // returning the req.body here results in a graphQL query...
       const { data } = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, { maxAge: expiration });
       console.log(`Here is ${req.user.username}'s the verified data: `, data)
       req.user = data;
     } catch {
       console.log('🚫 Tried to verify the token, but it is invalid!');
     }
-
-    // console.log('🔐 Auth Request BODY: ', req.body);
     return req;
   },
   signToken: function ({ username, email, _id }) {

@@ -20,8 +20,6 @@ const startServer = async () => {
   console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath} 🔭`);
 };
 
-startServer();
-
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
@@ -35,44 +33,9 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 };
 
-const destinations = [
-  {
-    "username": "Matthew",
-    "name": "Matthew",
-    "date": "August 5, 2023",
-    "crew": 4
-  },
-  {
-    "username": "Senthol",
-    "name": "Neptune",
-    "date": "December 1, 2022",
-    "crew": 2
-  },
-  {
-    "username": "Lucca",
-    "name": "Pluto",
-    "date": "January 17, 2025",
-    "crew": 10
-  }
-]
-
 app.get('/destinations', authMiddleware, (req, res) => {
   res.json(destinations.filter(destination => destination.username === req.user.name))
 })
-
-// function authenticateToken(req, res, next) {
-//   const authHeader = req.headers['authorization'];
-//   const token = authHeader && authHeader.split(' ').pop().trim();
-//   // const token = authHeader && authHeader.split(' ')[1]
-//   if (token === null) return res.sendStatus(401)
-
-//   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-//     if (err) return res.sendStatus(403)
-//     req.user = user
-//     console.log('REQUESTED USER: ', req.user);
-//     next();
-//   })
-// };
 
 app.use(routes);
 
@@ -85,3 +48,5 @@ db.once('open', () => {
     console.log(`API server running on port ${PORT}! 🛰`);
   });
 });
+
+startServer();

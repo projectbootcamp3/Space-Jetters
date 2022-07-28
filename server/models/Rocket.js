@@ -2,6 +2,10 @@ const { Schema, model } = require('mongoose');
 
 const rocketSchema = new Schema(
   {
+    rocketId: {
+      type: Number,
+      required: true
+    },
     name: {
       type: String,
       required: true,

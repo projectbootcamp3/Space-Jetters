@@ -20,6 +20,12 @@ const userSchema = new Schema(
       required: true,
       minlength: 5
     },
+    missions: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Mission'
+      }
+    ],
   },
   {
     toJSON: {
@@ -28,7 +34,7 @@ const userSchema = new Schema(
   }
 );
 
-userSchema.pre('save', async function(next) {
+userSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
@@ -37,7 +43,7 @@ userSchema.pre('save', async function(next) {
   next();
 });
 
-userSchema.methods.isCorrectPassword = async function(password) {
+userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 

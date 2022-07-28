@@ -8,7 +8,7 @@ const typeDefs = gql`
   }
 
   type Rocket {
-    _id: ID
+    rocketId: Int
     name: String
     origin: String
     description: String
@@ -17,9 +17,25 @@ const typeDefs = gql`
 
   type Mission {
     _id: ID
+    destination: Destination
+    departureDate: String
+    crewSize: Int
+    owner: User
+  }
+
+  input MissionInput {
+    ownerInput: ownerInput
     destination: String
     departureDate: String
-    tripDuration: String
+    crewSize: Int
+  }
+
+  input destinationInput {
+    name: String
+  }
+
+  input ownerInput {
+    username: String
   }
 
   type Destination {
@@ -28,12 +44,6 @@ const typeDefs = gql`
     dayLength: String
     distance: String
     trainingTime: String
-  }
-
-  input MissionInput {
-    destination: String
-    departureDate: String
-    tripDuration: String
   }
 
   type Auth {
@@ -45,17 +55,15 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    rocket(_id: ID!): Rocket
+    rocket(rocketId: Int!): Rocket
     rockets: [Rocket]
     missions: [Mission]
     destinations: [Destination]
-    getMission: String
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!): Auth
-    addMission(input: MissionInput!): Mission
+    addMission(missionInput: MissionInput!): Mission
     signup(username: String!, email: String!, password: String!): Auth
   }
 `;
