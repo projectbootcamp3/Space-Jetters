@@ -23,7 +23,7 @@ const Rockets = () => {
   
     <section id="rocket-selection" class="rocket">
       <img 
-									src={rocketImage1} height={400} width={600} class="float-left" alt="Image of rocekt"
+									src={rocketImage1} height={400} width={600} class="float-left" alt="rocekt1"
 								
 									
 								></img>
@@ -36,7 +36,7 @@ const Rockets = () => {
 
     <section id="superRocket-selection" class="rocket">
       <img 
-									src={rocketImage2} height={400} width={600} class="float-right" alt="Image of 2nd rocket"
+									src={rocketImage2} height={400} width={600} class="float-right" alt="rocket2"
 								
 									
 								></img>
