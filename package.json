@@ -8,7 +8,9 @@
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build",
-    "seed": "cd server && npm run seed"
+    "seed": "cd server && npm run seed",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -19,9 +21,10 @@
   "bugs": {
     "url": "https://github.com/projectbootcamp3/Space-Jetters/issues"
   },
-  "homepage": "https://github.com/projectbootcamp3/Space-Jetters#readme",
+  "homepage": "http://<projectbootcamp3>.github.io/Space-Jetters",
   "devDependencies": {
-    "concurrently": "^7.3.0"
+    "concurrently": "^7.3.0",
+    "gh-pages": "^4.0.0"
   },
   "dependencies": {
     "dotenv": "^16.0.1"
