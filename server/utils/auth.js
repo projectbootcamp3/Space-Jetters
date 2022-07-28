@@ -18,7 +18,7 @@ module.exports = {
     }
 
     if (!token) {
-      console.log('🌑 Oh! This user does not have a token! Here, passing the original request... ', req.body);
+      // console.log('🌑 Oh! This user does not have a token! Here, passing the original request... ', req.body);
       return req;
     }
 

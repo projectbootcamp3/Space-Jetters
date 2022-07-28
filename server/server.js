@@ -1,7 +1,6 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
-const routes = require('./routes/index');
 const db = require('./config/connection');
 const jwt = require('jsonwebtoken');
 
@@ -32,12 +31,6 @@ if (process.env.NODE_ENV === 'production') {
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 };
-
-app.get('/destinations', authMiddleware, (req, res) => {
-  res.json(destinations.filter(destination => destination.username === req.user.name))
-})
-
-app.use(routes);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
