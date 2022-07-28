@@ -47,7 +47,7 @@ const Moon = () => {
             <li>* Tour through multiple tourism places and views</li>
             <li>  * Insurance</li>
           </ul>
-          <div className="line-2"></div>
+          <div className="line-2 hide"></div>
         </div>
       </section>
 
@@ -55,30 +55,33 @@ const Moon = () => {
       {/* Inputs */}
       <div className="input-wrapper">
         <form className="destinations-input-box">
+
           <div className="inputs-box">
             {/* Travel date*/}
             <div className="individual-input date">
-              <label htmlFor="date">Desired date: </label>
+            <p>Desired date: </p>
               <input id="moon-date" type="date" name="date"
                 placeholder="dd-mm-yyyy"
                 min="1997-01-01" max="2030-12-31" />
             </div>
             <div className="individual-input people">
               {/* Poeple */}
-              <label htmlFor="europa">People (between 1 and 5):</label>
-              <input type="number" id="moon-people" name="europa" min="1" max="5" />
+             <p> People (between 1 and 5)</p>
+              <input type="number" id="moon-people" min="1" max="5" />
             </div>
           </div>
 
           {/* Final Price */}
-          <div>
+          <div className ="finalPriceContainer">
             <p> Final Price: <span className="finalPrice"> value </span></p>
           </div>
+
           <div className="btn-checkout-box">
-            <button id="moon-btn" className="btn-3 btn-checkout">
-              <Link to="/checkout">checkout</Link>
+            <button id="moon-btn">
+              <Link to="/checkout" className="btn-3 btn-checkout">checkout</Link>
             </button>
           </div>
+
         </form>
       </div>
 

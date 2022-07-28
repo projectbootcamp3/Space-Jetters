@@ -1,13 +1,13 @@
 import React from 'react';
 
 
-const Contact = () => {
-    
-  return (
-    <div>
-      <h2 className="sub-title">This is the contact us page</h2>
-    </div>
-  );
+function Contact() {
+    return (
+       <div className="contact">"
+       contact us page
+       </div>
+        
+    );
 };
 
-export default Contact;
+export default Contact
