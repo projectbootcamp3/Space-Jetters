@@ -12,18 +12,26 @@ import { setContext } from '@apollo/client/link/context';
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Home from "./pages/Home";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Login from "./pages/Login";
-import Profile from "./pages/Profile";
-import Signup from "./pages/Signup";
-import Destinations from "./pages/Destinations";
-import Rockets from "./pages/Rockets";
-import Contact from "./pages/Contact";
-import NoMatch from "./pages/NoMatch";
-import Checkout from "./pages/Checkout";
 import Sidebar from "./components/Sidebar";
-const { Moon, Mars, Europa, Titan, SpaceStation } = require('./pages/destinations/index.js');
+const {
+  Home,
+  Login,
+  Profile,
+  Signup,
+  Destinations,
+  Rockets,
+  Contact,
+  NoMatch,
+  Checkout
+} = require('./pages/index.js');
+const {
+  Moon,
+  Mars,
+  Europa,
+  Titan,
+  SpaceStation
+} = require('./pages/destinations/index.js');
 
 const httpLink = createHttpLink({
   uri: '/graphql',
