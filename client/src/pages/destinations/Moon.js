@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import moon from "../../assets/destinations/halfmoon.png"
 import { Link } from "react-router-dom";
 
 const Moon = () => {
+  const [crewSize, setCrewSize] = useState(0)
+  const [date, setDate] = useState('');
+  const price = (crewSize * 1000);
+  const handleChangeCrewSize = event => {
+    setCrewSize(event.target.value);
+    console.log('Crew size is:', event.target.value);
+  };
+  const handleChangeDate = event => {
+    setDate(event.target.value)
+    console.log('Desired departure date is:', event.target.value);
+  }
   return (
     <div className="dest-page">
       <div className="title-box">
@@ -47,7 +58,7 @@ const Moon = () => {
             <li>* Tour through multiple tourism places and views</li>
             <li>  * Insurance</li>
           </ul>
-          <div className="line-2"></div>
+          <div className="line-2 hide"></div>
         </div>
       </section>
 
@@ -55,30 +66,38 @@ const Moon = () => {
       {/* Inputs */}
       <div className="input-wrapper">
         <form className="destinations-input-box">
+
           <div className="inputs-box">
             {/* Travel date*/}
             <div className="individual-input date">
-              <label htmlFor="date">Desired date: </label>
+              <p>Desired date: </p>
               <input id="moon-date" type="date" name="date"
                 placeholder="dd-mm-yyyy"
-                min="1997-01-01" max="2030-12-31" />
+                min="2022-08-01" max="2030-12-31"
+                onChange={handleChangeDate}
+                value={date}
+              />
             </div>
             <div className="individual-input people">
               {/* Poeple */}
-              <label htmlFor="europa">People (between 1 and 5):</label>
-              <input type="number" id="moon-people" name="europa" min="1" max="5" />
+              <p> People (between 1 and 5)</p>
+              <input type="number" id="moon-people" min="1" max="5"
+                onChange={handleChangeCrewSize}
+                value={crewSize} />
             </div>
           </div>
 
           {/* Final Price */}
-          <div>
+          <div className="finalPriceContainer">
             <p> Final Price: <span className="finalPrice"> value </span></p>
           </div>
+
           <div className="btn-checkout-box">
-            <button id="moon-btn" className="btn-3 btn-checkout">
-              <Link to="/checkout">checkout</Link>
+            <button id="moon-btn">
+              <Link to="/checkout" className="btn-3 btn-checkout">checkout</Link>
             </button>
           </div>
+
         </form>
       </div>
 

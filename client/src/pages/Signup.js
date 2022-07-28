@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import loginBg from "../assets/home-images/login-bg.jpg";
 
 const Signup = () => {
   const [formState, setFormState] = useState({ username: '', email: '', password: '' });
@@ -32,11 +33,24 @@ const handleFormSubmit = async event => {
 };
 
   return (
-    <main className='main'>
+    <main className="main login-wrapper hero_image"
+    style={{
+      backgroundImage: `url(${loginBg})`,
+      backgroundSize: "cover",
+      height: "100vh",
+      backgroundPosition: "center",
+    }}>
       
-        <div className='login-container'>
-          <h2 className='sub-title'>Sign Up</h2>
-            <form onSubmit={handleFormSubmit}>
+        <div className='login-container form-box'>
+        <div className="login-form-wrapper">
+
+        <div className="subtitle-container">
+          <div className="line"></div>
+          <h2 className="sub-title">Sign up</h2>
+          <div className="line"></div>
+        </div>
+
+            <form onSubmit={handleFormSubmit} className="login-form">
               <input
                 className='form-input'
                 placeholder='Your username'
@@ -64,12 +78,14 @@ const handleFormSubmit = async event => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button className='btn-login' type='submit'>
+              <button className='btn-login btn-3' type='submit'>
                 Sign Up
               </button>
             </form>
             {error && <div>Sign up failed</div>}
           </div>
+
+        </div>
     </main>
   );
 };
