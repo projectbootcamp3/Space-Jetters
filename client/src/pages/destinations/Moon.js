@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import moon from "../../assets/destinations/halfmoon.png"
 import { Link } from "react-router-dom";
 
 const Moon = () => {
+  const [crewSize, setCrewSize] = useState(0)
+  const [date, setDate] = useState('');
+  const price = (crewSize * 1000);
+  const handleChangeCrewSize = event => {
+    setCrewSize(event.target.value);
+    console.log('Crew size is:', event.target.value);
+  };
+  const handleChangeDate = event => {
+    setDate(event.target.value)
+    console.log('Desired departure date is:', event.target.value);
+  }
   return (
     <div className="dest-page">
       <div className="title-box">
@@ -59,20 +70,25 @@ const Moon = () => {
           <div className="inputs-box">
             {/* Travel date*/}
             <div className="individual-input date">
-            <p>Desired date: </p>
+              <p>Desired date: </p>
               <input id="moon-date" type="date" name="date"
                 placeholder="dd-mm-yyyy"
-                min="1997-01-01" max="2030-12-31" />
+                min="2022-08-01" max="2030-12-31"
+                onChange={handleChangeDate}
+                value={date}
+              />
             </div>
             <div className="individual-input people">
               {/* Poeple */}
-             <p> People (between 1 and 5)</p>
-              <input type="number" id="moon-people" min="1" max="5" />
+              <p> People (between 1 and 5)</p>
+              <input type="number" id="moon-people" min="1" max="5"
+                onChange={handleChangeCrewSize}
+                value={crewSize} />
             </div>
           </div>
 
           {/* Final Price */}
-          <div className ="finalPriceContainer">
+          <div className="finalPriceContainer">
             <p> Final Price: <span className="finalPrice"> value </span></p>
           </div>
 
