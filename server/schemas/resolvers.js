@@ -1,5 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Mission, Rocket, Destination } = require('../models');
+const { update } = require('../models/User');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -7,6 +8,7 @@ const resolvers = {
     me: async (parent, args, context) => {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
+          .then(data => res.json(data))
           .select('-__v -password')
 
         return userData;
@@ -30,7 +32,7 @@ const resolvers = {
     },
     destinations: async (parent, args) => {
       const result = await Destination.find({});
-      console.log(result);
+      console.log(' <><><><><><><><><><><><><>🪐<><><><><><><><><><><><>\n\nDESTINATIONS', result, ' <><><><><><><><><><><><>🪐<><><><><><><><><><><><>');
       return result;
     },
     rocket: async (parent, { name }) => {
@@ -74,7 +76,7 @@ const resolvers = {
           { $addToSet: { missions: missionId } },
           { new: true }
         ).populate('missions');
-
+        console.log('UPDATED USER: ', updatedUser)
         return updatedUser;
       }
     }

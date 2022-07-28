@@ -24,7 +24,7 @@ const Login = (props) => {
       const { data } = await login({
         variables: { ...formState },
       });
-
+      // login method comes from the AuthService class (hence Auth)
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);

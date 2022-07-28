@@ -13,7 +13,7 @@ import { setContext } from '@apollo/client/link/context';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import { BrowserRouter as Router, Route, Switch, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
@@ -23,12 +23,7 @@ import Contact from "./pages/Contact";
 import NoMatch from "./pages/NoMatch";
 import Checkout from "./pages/Checkout";
 import Sidebar from "./components/Sidebar";
-// Destinations
-import Moon from "./pages/destinations/Moon";
-import Mars from "./pages/destinations/Mars";
-import Europa from "./pages/destinations/Europa";
-import SpaceStation from "./pages/destinations/SpaceStation";
-import Titan from "./pages/destinations/Titan";
+const { Moon, Mars, Europa, Titan, SpaceStation } = require('./pages/destinations/index.js');
 
 const httpLink = createHttpLink({
   uri: '/graphql',
