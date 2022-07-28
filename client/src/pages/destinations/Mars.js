@@ -9,8 +9,8 @@ const Mars = () => {
         <h2 className="sub-title desti-title">
           Mars
         </h2>
-        <div className="line-2"></div>
       </div>
+      <div className="line-2"></div>
       <section className="destinations-info">
         {/* Destination info*/}
         <div className="dest-info-box">
@@ -47,9 +47,9 @@ const Mars = () => {
             <li>* Tour through multiple tourism places and views</li>
             <li>  * Insurance</li>
           </ul>
+          <div className="line-2"></div>
         </div>
       </section>
-      <div className="line-2"></div>
 
       {/* Inputs */}
       <div>
@@ -57,14 +57,14 @@ const Mars = () => {
           <div className="inputs-box">
             {/* Travel date*/}
             <div className="individual-input date">
-              <label for="date">Desired date: </label>
+              <label htmlFor="date">Desired date: </label>
               <input type="date" name="date"
                 placeholder="dd-mm-yyyy"
                 min="1997-01-01" max="2030-12-31" />
             </div>
             <div className="individual-input people">
               {/* Poeple */}
-              <label for="mars">People (between 1 and 5):</label>
+              <label htmlFor="mars">People (between 1 and 5):</label>
               <input type="number" id="mars-people" name="mars" min="1" max="5" />
             </div>
           </div>

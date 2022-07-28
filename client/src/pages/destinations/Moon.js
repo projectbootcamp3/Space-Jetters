@@ -58,14 +58,14 @@ const Moon = () => {
           <div className="inputs-box">
             {/* Travel date*/}
             <div className="individual-input date">
-              <label for="date">Desired date: </label>
+              <label htmlFor="date">Desired date: </label>
               <input id="moon-date" type="date" name="date"
                 placeholder="dd-mm-yyyy"
                 min="1997-01-01" max="2030-12-31" />
             </div>
             <div className="individual-input people">
               {/* Poeple */}
-              <label for="europa">People (between 1 and 5):</label>
+              <label htmlFor="europa">People (between 1 and 5):</label>
               <input type="number" id="moon-people" name="europa" min="1" max="5" />
             </div>
           </div>
