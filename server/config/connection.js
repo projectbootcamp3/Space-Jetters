@@ -10,7 +10,7 @@ console.log('Connection.js 🍃🖇 MONGODB_URI:', uri)
 mongoose.connect(uri, {
   useNewUrlParser: true,
   // useFindAndModify: false,
-  // useUnifiedTopology: true
+   useUnifiedTopology: true
 });
 
 module.exports = mongoose.connection;
