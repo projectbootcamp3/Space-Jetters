@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
-import { getDestinationsFromApi } from "../utils/API";
+import React from "react";
+
 import astronaultImg from "../assets/home-images/astronault.jpg"
 
 const Profile = () => {
-  useEffect(() => {
-    getDestinationsFromApi();
-  })
+  
   return (
     <div className="profile-wrapper">
       <section className="profile flex-columns">
