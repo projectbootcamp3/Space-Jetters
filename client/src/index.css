@@ -944,6 +944,87 @@ Note: Beware of modifying this element as it can break the animations - you shou
   display: none;
 }
 
+/*------------- Login / Sign Up------------------*/
+ .login-form{
+  display: flex;
+  flex-direction: column;
+ }
+ 
+.login-form-wrapper{
+  color: #fff;
+  height: 60vh;
+  width: 40%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form{
+  height: 60vh;
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(13, 13, 15, 0.15);   
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+  text-align: center;
+  justify-content: center;
+}
+
+.form-box input[type="email"], input[type="password"],input[type="username"] {
+  background-color: transparent;
+  border: none;
+  border-bottom: rgb(255, 255, 255) 1px solid;
+  padding-top: 20px;
+  font-size: 14px;
+  outline: none;
+  color: #fff;
+}
+
+::placeholder {
+  color: rgb(255, 255, 255);
+}
+
+.form-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-wrapper{
+  background-color: #000000;
+  height: 100vh;
+  
+}
+
+.login-form-wrapper .subtitle-container{
+    padding-bottom: 20px;
+}
+
+.login-form-wrapper .subtitle-container .line{
+  background-color: #fff;
+}
+
+.btn-login{
+  background-color: transparent;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 40px;
+  font-size: 16px;;
+}
+
+.form-input {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 60px;
+}
+
+
 
 
  /* Media Query for Tablets Ipads portrait mode */
@@ -1124,6 +1205,14 @@ Note: Beware of modifying this element as it can break the animations - you shou
    display: none;
   }
 
+  .login-form{
+    width: 100%;
+  }
+
+  .login-form-wrapper{
+    width: 60%;
+  }
+
   
 }
 
@@ -1249,7 +1338,7 @@ and (max-device-width : 540px) {
 
   .btn-primary{
     font-size: 15px;
-    font-family: 'Gruppo', cursive;
+    font-family: 'Gruppo' , cursive;
   }
 
   #home-b .process {
@@ -1456,6 +1545,15 @@ and (max-device-width : 540px) {
 
     .column-1 img{
       display: none;
+    }
+
+    /* login and sign up*/
+    .login-form{
+      width: 100%;
+    }
+
+    .login-form-wrapper{
+      width: 90%;
     }
 
     
