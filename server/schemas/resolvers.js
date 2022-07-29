@@ -1,12 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Mission, Rocket, Destination } = require('../models');
+const { User, missionSchema, Rocket, Destination } = require('../models');
 const { signToken, authenticateToken } = require('../utils/auth');
-
-const fakeDB = [
-  {
-    "mission": null
-  }
-];
 
 const resolvers = {
   Query: {
@@ -26,11 +20,6 @@ const resolvers = {
       return User.findOne({ username })
         .select('-__v -password')
     },
-    users: async (parent, args) => {
-      console.log('🔍 Finding ALL users: ');
-      return User.find({})
-        .select('-__v -password')
-    },
     rockets: async (parent, args) => {
       const result = await Rocket.find({});
       console.log('ROCKETS', result);
@@ -41,20 +30,25 @@ const resolvers = {
       console.log('DESTINATIONS', result);
       return result;
     },
-    // getDestinations(_, { req }) {
-    //   let token;
-    //   try {
-    //     token = jwt.verify(req.request.headers.authorization, process.env.ACCESS_TOKEN_SECRET);
-    //   } catch (e) {
-    //     return null;
-    //   }
-    //   console.log(token);
-    //   return token;
-    // }
-    missions: async (parent, args) => {
-      return Mission.find().sort({ createdAt: -1 });
+    users: async (parent, args) => {
+      const result = await User.find({});
+      console.log(result);
+      return result;
+    },   
+    rockets: async (parent, args) => {
+      const result = await Rocket.find({});
+      console.log(result);
+      return result;
     },
-    getMission: ({ msn }) => fakeDB.msn
+    rocket: async (parent, { name }) => {
+      return Rocket.findOne({ name })
+    },
+    mission: async (parent, { _id }) => {
+      return Mission.findOne({ _id })
+    },
+    missions: async () => {
+      return Mission.find({})
+    }
   },
 
   Mutation: {
@@ -88,10 +82,13 @@ const resolvers = {
 
       return { token, user };
     },
-    addMission: (parent, args) => {
-      const mission = new Mission(args);
-      // return mission.save();
-      return { mission }
+    addMission: async (parent, { userid, missionInput }) => {
+      const missionData = { destination: missionInput.destination, tripDuration: missionInput.tripDuration, departureDate: missionInput.departureDate }
+      return User.findOneAndUpdate(
+        { _id: userid },
+        { $push: { missions: missionData } },
+        { new: true }
+      )
     }
   }
 };

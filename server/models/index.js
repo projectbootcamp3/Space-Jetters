@@ -1,6 +1,6 @@
 const User = require('./User');
-const Mission = require("./Mission")
+const missionSchema = require("./MissionSchema")
 const Rocket = require("./Rocket")
 const Destination = require("./Destination")
 
-module.exports = { User, Mission, Rocket, Destination };
+module.exports = { User, missionSchema, Rocket, Destination };

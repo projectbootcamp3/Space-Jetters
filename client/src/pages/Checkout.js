@@ -1,5 +1,6 @@
 import React from "react";
-import CheckoutForm from '../components/CheckoutForm/CheckoutForm'
+import guide from "../files/guide.pdf"
+//import CheckoutForm from '../components/CheckoutForm/CheckoutForm'
 
 const Checkout = () => {
   return (
@@ -51,6 +52,12 @@ const Checkout = () => {
           submit
         </button>
       </div>
+
+      <div className="download-box">
+				<a href={guide} download>
+					<h3>Download space travel guide</h3>
+				</a>
+			</div>
     </div>
   );
 };
