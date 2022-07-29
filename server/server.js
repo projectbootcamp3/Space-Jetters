@@ -5,8 +5,8 @@ const db = require('./config/connection');
 const stripe = require('stripe')('sk_test_Hrs6SAopgFPF0bZXSN3f6ELN');
 
 const { typeDefs, resolvers } = require('./schemas');
-// const { authMiddleware } = require('./utils/auth');
-const PORT = process.env.PORT || 3001;
+const { authMiddleware } = require('./utils/auth');
+const PORT = process.env.PORT || 4000;
 
 const startServer = async () => {
   const server = new ApolloServer({
