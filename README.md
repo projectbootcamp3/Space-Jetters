@@ -1,4 +1,5 @@
 # Space Jetters
+
 ---
 
 ## How It Works
@@ -16,17 +17,29 @@
 6. Next, hit the “checkout” button, which will take you to the payments page ([Stripe](https://stripe.com/en-gb-ca)).
 7. Fill in your payment information, then confirm your payment to book your trip!
 
+---
+
+## Installation
+
+Copy the link to the repo (either HTTP or SSH link above), the paste it after entering the git clone command in 
+
+### 1. Create a new directory using `mkdir <Directory_Name>`.
+### 2. `cd` into the newly created directory.
+### 3. Run `git clone <GitHub_Repo>` to clone the remote repo to your newly created directory on your computer. 
 
 ## Available Scripts
 
-In the project directory, you can run:
+Once the project is cloned into the directory you created, you should run:
 
-### `npm start`
+### 1. In the root directory of the project, run `npm install` to download the required packages for starting the server and client.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. `cd` into the **client* directory, then run `npm install` to download the required packages. When done, return to the root directory.
 
-The page will reload when you make changes.\
+### 3. `cd` into the **server* directory, then run `npm install` to download the required packages. When done, return to the root directory.
+
+### 3. Finally, use the command `npm run develop` to concurrently start the [Apollo Server](https://www.apollographql.com/docs/apollo-server/) and [React Client](https://reactjs.org/) in "development mode".
+
+The page will reload when you make changes due to the **nodemon** package that is installed within the server directory.\
 You may also see any lint errors in the console.
 
 ### `npm test`
