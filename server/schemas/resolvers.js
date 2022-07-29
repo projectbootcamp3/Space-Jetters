@@ -20,11 +20,6 @@ const resolvers = {
       return User.findOne({ username })
         .select('-__v -password')
     },
-    users: async (parent, args) => {
-      console.log('🔍 Finding ALL users: ');
-      return User.find({})
-        .select('-__v -password')
-    },
     rockets: async (parent, args) => {
       const result = await Rocket.find({});
       console.log('ROCKETS', result);
@@ -35,12 +30,24 @@ const resolvers = {
       console.log('DESTINATIONS', result);
       return result;
     },
-    missions: async (parent, { _id }) => {
-      const params = _id ? { _id } : {}
-      return Mission.find(params).sort({ createdAt: -1 });
+    users: async (parent, args) => {
+      const result = await User.find({});
+      console.log(result);
+      return result;
+    },   
+    rockets: async (parent, args) => {
+      const result = await Rocket.find({});
+      console.log(result);
+      return result;
+    },
+    rocket: async (parent, { name }) => {
+      return Rocket.findOne({ name })
     },
     mission: async (parent, { _id }) => {
       return Mission.findOne({ _id })
+    },
+    missions: async () => {
+      return Mission.find({})
     }
   },
 

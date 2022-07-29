@@ -30,7 +30,6 @@ const typeDefs = gql`
 
   input MissionInput {
     departureDate: String
-    tripDuration: String
     crewSize: Int
   }
 
