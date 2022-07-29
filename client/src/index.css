@@ -1163,7 +1163,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .download-box a{
   color: #fff;
   text-decoration: none;
-  border: 1px #fff solid;
   background-color: transparent;
   padding: 6px 30px;
 }
@@ -1198,6 +1197,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
     height: 100vh;
     background-color: #000000;
 }
+
 
 #content{
   color: #fff;
