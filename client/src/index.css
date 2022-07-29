@@ -1150,6 +1150,24 @@ Note: Beware of modifying this element as it can break the animations - you shou
   color: black;
 }
 
+.download-box{
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.download-box h3{
+  font-size: 15px;
+}
+
+.download-box a{
+  color: #fff;
+  text-decoration: none;
+  border: 1px #fff solid;
+  background-color: transparent;
+  padding: 6px 30px;
+}
+
 /*------------Nasa image of the day-------------*/
 .nasa-btn{
   border: none;
@@ -1369,10 +1387,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
     background-color: rgb(0, 0, 0);
     height: 100vh;
   }
-  .column-1 {
-   display: none;
-  }
-
   .login-form{
     width: 100%;
   }
@@ -1388,7 +1402,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
   
 }
-
 
 /*Media queries  ----------MOBILE----------*/
 @media only screen 
