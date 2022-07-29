@@ -1,11 +1,39 @@
 import React, { useState } from "react";
 import moon from "../../assets/destinations/halfmoon.png"
 import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { CREATE_MISSION } from "../../utils/mutations";
+import { QUERY_ME, QUERY_MISSIONS } from '../../utils/queries';
 
 const Moon = () => {
   const [crewSize, setCrewSize] = useState(0)
   const [date, setDate] = useState('');
-  const price = (crewSize * 1000);
+  // const price = (crewSize * 1000);
+
+  const [createMission, { error }] = useMutation(CREATE_MISSION, {
+    update(cache, { data: { createMission } }) {
+
+      // could potentially not exist yet, so wrap in a try/catch
+      try {
+        // update me array's cache
+        const { me } = cache.readQuery({ query: QUERY_ME });
+        cache.writeQuery({
+          query: QUERY_ME,
+          data: { me: { ...me, missions: [...me.missions, createMission] } },
+        });
+      } catch (e) {
+        console.warn("First thought insertion by user!")
+      }
+
+      // update thought array's cache
+      const { missions } = cache.readQuery({ query: QUERY_MISSIONS });
+      cache.writeQuery({
+        query: QUERY_MISSIONS,
+        data: { missions: [createMission, ...missions] },
+      });
+    }
+  });
+
   const handleChangeCrewSize = event => {
     setCrewSize(event.target.value);
     console.log('Crew size is:', event.target.value);
@@ -14,6 +42,24 @@ const Moon = () => {
     setDate(event.target.value)
     console.log('Desired departure date is:', event.target.value);
   }
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const destination = "Moon"
+
+    try {
+      await createMission({
+        variables: { destination, crewSize, date },
+      });
+
+      // clear form value
+      setDate('');
+      setCrewSize(0);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <div className="dest-page">
       <div className="title-box">
@@ -62,10 +108,12 @@ const Moon = () => {
         </div>
       </section>
 
-
       {/* Inputs */}
       <div className="input-wrapper">
-        <form className="destinations-input-box">
+        <form
+          className="destinations-input-box"
+          onSubmit={handleFormSubmit}
+        >
 
           <div className="inputs-box">
             {/* Travel date*/}
@@ -93,14 +141,13 @@ const Moon = () => {
           </div>
 
           <div className="btn-checkout-box">
-            <button id="moon-btn">
+            <button id="moon-btn" type="submit">
               <Link to="/checkout" className="btn-3 btn-checkout">checkout</Link>
             </button>
           </div>
 
         </form>
       </div>
-
 
       <section>
         <div className="dest-img-container">
