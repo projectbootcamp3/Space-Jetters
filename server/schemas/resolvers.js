@@ -1,7 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Mission, Rocket, Destination } = require('../models');
+const { User, missionSchema, Rocket, Destination } = require('../models');
 const { signToken, authenticateToken } = require('../utils/auth');
-
 
 const resolvers = {
   Query: {
@@ -76,15 +75,13 @@ const resolvers = {
 
       return { token, user };
     },
-    addMission: async (parent, {userid, missionInput}, context) => {
-      if (context.user) {
-      const missionData = {destination: missionInput.destination, tripDuration: missionInput.tripDuration, departureDate: missionInput.departureDate}
+    addMission: async (parent, { userid, missionInput }) => {
+      const missionData = { destination: missionInput.destination, tripDuration: missionInput.tripDuration, departureDate: missionInput.departureDate }
       return User.findOneAndUpdate(
-            { _id: context.user._id },
-            { $push: { missions: missionData } },
-            { new: true }
-          )
-        }
+        { _id: userid },
+        { $push: { missions: missionData } },
+        { new: true }
+      )
     }
   }
 };

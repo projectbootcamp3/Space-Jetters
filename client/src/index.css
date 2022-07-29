@@ -616,9 +616,10 @@ select:-webkit-autofill:focus {
 }
 
 .mission-data{
-  padding: 15px 10px;
-  font-size: 17px;
-  color:rgb(152, 146, 146)
+  padding: 8px 10px;
+  font-size: 12px;
+  color:rgb(152, 146, 146);
+  outline: none;
 }
 
 /* -----------DESTINATIONS PAGE------------*/
@@ -1024,9 +1025,194 @@ Note: Beware of modifying this element as it can break the animations - you shou
   padding-top: 60px;
 }
 
+/* ------------Checkout page -----------*/
+.price-container {
+  height: 900px;
+  width: 400px;
+  background-image: linear-gradient(#05cde7, #06f3a4);
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-bottom-left-radius: 180px;
+  border-top-right-radius: 150px;
+}
+  
+.main-content {
+  height: 235px;
+  background-color: #000000;
+  border-bottom-left-radius: 90px;
+  border-bottom-right-radius: 80px;
+  border-top: #1e6b30;
+}
+  
+.text {
+  text-align: center;
+  font-size: 300%;
+  text-decoration: aliceblue;
+  color: aliceblue;
+}
+
+.checkout-wrapper  .line{
+  background-color: #fff;;
+}
+
+.checkout-wrapper .subtitle-container h2{
+  color: #fff;
+}
+
+.trip-infos{
+  color: #fff;
+}
+  
+.course {
+  color: black;
+  font-size: 25px;
+  font-weight: bolder;
+}
+ 
+  
+.centre-content-h1 {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-weight: normal;
+}
+  
+.price {
+  font-size: 60px;
+  margin-left: 5px;
+  bottom: 15px;
+  position: relative;
+}
+ 
+
+.checkout-wrapper{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #000000;
+}
+
+.trip-infos{
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.trip-infos p{
+  padding: 5px;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  background: rgb(89, 90, 89);
+  color: rgb(187, 186, 192);
+  margin: 0 auto;
+  width: 30%;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 15px;
+  align-items: center;
+  text-align: center;
+  padding: 50px 0;
+  /* border-bottom-left-radius: 80px; */
+}
+  
 
 
+.card-details p {
+  font-size: 25px;
+  padding-bottom: 20px;
+}
+  
+.card-details label {
+  font-size: 18px;
+  line-height: 35px;
+}
+  
+.submit-now-btn {
+  cursor: pointer;
+  color: #fff;
+  height: 30px;
+  width: 240px;
+  border: none;
+  margin: 5px 30px;
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px #fff solid;
+  margin-top: 30px;
+}
 
+.submit-now-btn:hover{
+  background-color: #fff;
+  color: black;
+}
+
+.download-box{
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.download-box h3{
+  font-size: 15px;
+}
+
+.download-box a{
+  color: #fff;
+  text-decoration: none;
+  border: 1px #fff solid;
+  background-color: transparent;
+  padding: 6px 30px;
+}
+
+/*------------Nasa image of the day-------------*/
+.nasa-btn{
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.btn-nasa-box{
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.nasa-wrapper h1{
+  padding-top: 25px;
+  color: #fff;
+}
+
+.nasa-img-box img{
+  width: 500px;
+  height: 500px;
+}
+
+.nasa-wrapper{
+    width: 100%;
+    height: 100vh;
+    background-color: #000000;
+}
+
+#content{
+  color: #fff;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#content img{
+  margin-top: 30px;
+  margin-bottom: 40px;
+  text-align: end;
+  border-radius: 30px;
+  width: 600px;
+}
  /* Media Query for Tablets Ipads portrait mode */
  @media (min-width: 768px) and (max-width: 1024px){
   /*contact*/
@@ -1201,10 +1387,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
     background-color: rgb(0, 0, 0);
     height: 100vh;
   }
-  .column-1 {
-   display: none;
-  }
-
   .login-form{
     width: 100%;
   }
@@ -1213,9 +1395,13 @@ Note: Beware of modifying this element as it can break the animations - you shou
     width: 60%;
   }
 
+  /*Checkout page*/
+  .card-details{
+    width: 80%;
+  }
+
   
 }
-
 
 /*Media queries  ----------MOBILE----------*/
 @media only screen 
@@ -1406,6 +1592,19 @@ and (max-device-width : 540px) {
     font-size: 15px;
   }
 
+  /*nasa api*/
+  #content img{
+    margin-top: 30px;
+    margin-bottom: 40px;
+    text-align: end;
+    border-radius: 30px;
+    width: 300px;
+  }
+
+  #content{
+    font-size: 15px;
+  }
+
   /*Rockets page*/
 
   .rocket img{
@@ -1424,6 +1623,11 @@ and (max-device-width : 540px) {
   .rocket-img-box{
     width: 100%;
     margin: 0 auto;
+  }
+
+  /*Checkout page*/
+  .card-details{
+    width: 90%;
   }
 
   /*Destinations page*/   
@@ -1543,7 +1747,7 @@ and (max-device-width : 540px) {
       flex-direction: column-reverse !important;
     }
 
-    .column-1 img{
+    .profile-wrapper .column-1 img{
       display: none;
     }
 

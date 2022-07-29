@@ -21,9 +21,10 @@ const Nasa = () => {
 
   function useApiData(data){
     let theDiv = document.getElementById("content");
-    //let explanation = document.createTextNode(`${data.explanation}`);
-   theDiv.innerHTML =  `<img src="${data.url}"`;
-   // theDiv.appendChild(explanation);
+    let explanation = document.createTextNode(`${data.explanation}`);
+   let img = theDiv.innerHTML = `<div className="nasa-img-box"><img src="${data.url}"</div>`
+   theDiv.appendChild(explanation);
+   theDiv.appendChild(img);
     
     console.log(data.explanation);
     //document.querySelector("#content").innerHTML = data.explanation
@@ -31,15 +32,16 @@ const Nasa = () => {
   }
 
   return (
-    <div>
-      <h1>
-      API Template
+    <div className="nasa-wrapper ">
+      <h1 className="sub-title">
+      NASA PICTURE OF THE DAY
     </h1>
-    <input id="searchTerm" type="text" placeholder="Enter search term" />
-    <button id="search" onClick={handleClick}
+    <div className="btn-nasa-box">
+    <button id="search-nasa" className="nasa-btn btn-secondary" onClick={handleClick}
 >
       Search
     </button>
+    </div>
     <div id="content"></div>
 
     </div>
