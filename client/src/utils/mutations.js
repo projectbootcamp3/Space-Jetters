@@ -23,3 +23,13 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_MISSION = gql`
+  mutation Mutation($missionInput: MissionInput!, $userid: ID!) {
+    addMission(missionInput: $missionInput, userid: $userid) {
+      missions {
+        departureDate
+      }
+    }
+  }
+`;

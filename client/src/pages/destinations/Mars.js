@@ -6,7 +6,7 @@ const Mars = () => {
   return (
     <div className="dest-page">
       <div className="title-box">
-        <h2 className="sub-title desti-title">
+        <h2 className="sub-title desti-title" value="Mars">
           Mars
         </h2>
       </div>

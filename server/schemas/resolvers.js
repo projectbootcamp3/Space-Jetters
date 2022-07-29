@@ -34,13 +34,6 @@ const resolvers = {
       const result = await Destination.find({});
       console.log('DESTINATIONS', result);
       return result;
-    },
-    missions: async (parent, { _id }) => {
-      const params = _id ? { _id } : {}
-      return Mission.find(params).sort({ createdAt: -1 });
-    },
-    mission: async (parent, { _id }) => {
-      return Mission.findOne({ _id })
     }
   },
 
