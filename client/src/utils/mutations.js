@@ -5,7 +5,7 @@ export const LOGIN_USER = gql`
     login(email: $email, password: $password) {
       token
       user {
-        _id
+        _userId
         username
       }
     }
@@ -17,19 +17,20 @@ export const ADD_USER = gql`
     addUser(username: $username, email: $email, password: $password) {
       token
       user {
-        _id
+        _userId
         username
       }
     }
   }
 `;
 
-export const ADD_MISSION = gql`
-  mutation Mutation($missionInput: MissionInput!, $userid: ID!) {
-    addMission(missionInput: $missionInput, userid: $userid) {
-      missions {
-        departureDate
-      }
+export const CREATE_MISSION = gql`
+  mutation CreateMission($destination: String!, $departureDate: String!, $crewSize: String!, $userId: ID!) {
+    createMission(destination: $destination, departureDate: $departureDate, crewSize: $crewSize, userId: $userId) {
+      destination
+      departureDate
+      crewSize
+      userId
     }
   }
 `;

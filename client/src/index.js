@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink, gql } from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -14,19 +14,6 @@ const client = new ApolloClient({
   link: httpLink,
   cache: new InMemoryCache(),
 });
-
-// const client = ...
-// client
-//   .query({
-//     query: gql`
-//       query GetLocations {
-//         rockets {
-//           name
-//         }
-//       }
-//     `,
-//   })
-//   .then((result) => console.log(result));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

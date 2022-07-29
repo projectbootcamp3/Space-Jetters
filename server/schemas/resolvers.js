@@ -25,16 +25,11 @@ const resolvers = {
       console.log('ROCKETS', result);
       return result;
     },
-    destinations: async (parent, args) => {
-      const result = await Destination.find({});
-      console.log('DESTINATIONS', result);
-      return result;
-    },
     users: async (parent, args) => {
       const result = await User.find({});
       console.log(result);
       return result;
-    },   
+    },
     rockets: async (parent, args) => {
       const result = await Rocket.find({});
       console.log(result);
@@ -82,11 +77,11 @@ const resolvers = {
 
       return { token, user };
     },
-    addMission: async (parent, { userid, missionInput }) => {
-      const missionData = { destination: missionInput.destination, tripDuration: missionInput.tripDuration, departureDate: missionInput.departureDate }
+    createMission: async (parent, { destination, departureDate, crewSize, userId }) => {
+      // const missionData = { destination, departureDate, crewSize }
       return User.findOneAndUpdate(
-        { _id: userid },
-        { $push: { missions: missionData } },
+        { _id: userId },
+        { $push: { missions: { destination, departureDate, crewSize } } },
         { new: true }
       )
     }

@@ -10,6 +10,17 @@ export const QUERY_USER = gql`
   }
 `;
 
+
+export const QUERY_MISSIONS = gql`
+query Missions {
+  missions {
+    destination
+    departureDate
+    crewSize
+  }
+}
+`
+
 export const QUERY_ME = gql`
   {
     me {
