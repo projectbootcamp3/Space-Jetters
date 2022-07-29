@@ -19,6 +19,9 @@
 
 ---
 
+## Screnshot
+![image](https://user-images.githubusercontent.com/78193249/181665348-2bff0dc8-1b50-4dd4-ad0e-8f7e4c4f693f.png)
+
 ## Installation
 
 Copy the link to the repo (either HTTP or SSH link above), the paste it after entering the git clone command in 
