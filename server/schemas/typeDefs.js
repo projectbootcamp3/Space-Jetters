@@ -31,7 +31,6 @@ const typeDefs = gql`
   }
 
   input MissionInput {
-    destination: String
     departureDate: String
     tripDuration: String
   }
@@ -50,6 +49,7 @@ const typeDefs = gql`
     missions: [Mission]
     destinations: [Destination]
     getMission: String
+    getUserMissions(userId: ID!): User
   }
 
   type Mutation {
