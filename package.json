@@ -1,16 +1,13 @@
 {
   "name": "space-jetters",
   "version": "1.0.0",
-  "description": "A space travel application.",
-  "main": "server/server.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "start": "node server/server.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
-    "build": "cd client && npm run build",
-    "seed": "cd server && npm run seed",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "seed": "cd server && npm run seed"
   },
   "repository": {
     "type": "git",
@@ -21,12 +18,12 @@
   "bugs": {
     "url": "https://github.com/projectbootcamp3/Space-Jetters/issues"
   },
-  "homepage": "http://<projectbootcamp3>.github.io/Space-Jetters",
+  "homepage": "https://github.com/projectbootcamp3/Space-Jetters#readme",
   "devDependencies": {
-    "concurrently": "^7.3.0",
-    "gh-pages": "^4.0.0"
+    "concurrently": "^7.3.0"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "dotenv": "^16.0.1"
   }
 }
