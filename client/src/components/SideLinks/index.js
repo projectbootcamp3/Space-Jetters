@@ -17,6 +17,7 @@ const SideBarLinks = ({ closeSideBar }) => {
               <Link to="/rockets" className="menu-item" onClick={closeSideBar}>Rockets</Link>
               <Link to="/contact" className="menu-item" onClick={closeSideBar} >Contact</Link>
               <Link to="/profile" className="menu-item" onClick={closeSideBar}>Profile</Link>
+              <Link to="/nasaImages" className="menu-item" onClick={closeSideBar}>NasaImages</Link>
               <a href="/" className="menu-item" onClick={logout}>
                 Logout
               </a>

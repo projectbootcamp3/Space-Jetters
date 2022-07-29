@@ -1025,7 +1025,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   padding-top: 60px;
 }
 
-/* Checkout page */
+/* ------------Checkout page -----------*/
 .price-container {
   height: 900px;
   width: 400px;
@@ -1071,17 +1071,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   font-size: 25px;
   font-weight: bolder;
 }
-  
-.centre-content {
-  height: 180px;
-  margin: -70px 30px 20px;
-  color: aliceblue;
-  text-align: center;
-  font-size: 20px;
-  border-radius: 25px;
-  padding-top: 0.5px;
-  background-image: linear-gradient(#1e6b30, #308d46);
-}
+ 
   
 .centre-content-h1 {
   padding-top: 30px;
@@ -1160,7 +1150,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   color: black;
 }
 
-/*Nasa image of the day*/
+/*------------Nasa image of the day-------------*/
 .nasa-btn{
   border: none;
   font-size: 30px;
@@ -1391,6 +1381,11 @@ Note: Beware of modifying this element as it can break the animations - you shou
     width: 60%;
   }
 
+  /*Checkout page*/
+  .card-details{
+    width: 80%;
+  }
+
   
 }
 
@@ -1584,6 +1579,19 @@ and (max-device-width : 540px) {
     font-size: 15px;
   }
 
+  /*nasa api*/
+  #content img{
+    margin-top: 30px;
+    margin-bottom: 40px;
+    text-align: end;
+    border-radius: 30px;
+    width: 300px;
+  }
+
+  #content{
+    font-size: 15px;
+  }
+
   /*Rockets page*/
 
   .rocket img{
@@ -1602,6 +1610,11 @@ and (max-device-width : 540px) {
   .rocket-img-box{
     width: 100%;
     margin: 0 auto;
+  }
+
+  /*Checkout page*/
+  .card-details{
+    width: 90%;
   }
 
   /*Destinations page*/   
@@ -1721,7 +1734,7 @@ and (max-device-width : 540px) {
       flex-direction: column-reverse !important;
     }
 
-    .column-1 img{
+    .profile-wrapper .column-1 img{
       display: none;
     }
 
