@@ -21,7 +21,6 @@ export const QUERY_ME = gql`
   }
 `;
 
-
 export const QUERY_ROCKET = gql`
 query Rocket($id: ID!) {
   rocket(_id: $id) {
@@ -56,7 +55,7 @@ export const QUERY_MISSIONS = gql`
 query Missions {
   missions {
     destination
-    distance
+    departureDate
     crewSize
   }
 }
