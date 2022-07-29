@@ -6,7 +6,6 @@ const stripe = require('stripe')('sk_test_Hrs6SAopgFPF0bZXSN3f6ELN');
 
 const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');
-const db = require('./config/connection');
 const PORT = process.env.PORT || 3001;
 
 const startServer = async () => {
@@ -19,7 +18,6 @@ const startServer = async () => {
   server.applyMiddleware({ app });
   console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath} 🔭`);
 };
-
 
 const app = express();
 
@@ -42,9 +40,9 @@ db.once('open', () => {
   app.listen(PORT, () => {
     console.log(`API server running on port ${PORT}! 🛰`);
   });
-});  
+});
 
-startApolloServer(typeDefs, resolvers);
+startServer();
 
 
 // if (process.env.NODE_ENV === 'production') {
