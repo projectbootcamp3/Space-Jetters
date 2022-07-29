@@ -34,7 +34,7 @@ const resolvers = {
       const result = await User.find({});
       console.log(result);
       return result;
-    },   
+    },
     rockets: async (parent, args) => {
       const result = await Rocket.find({});
       console.log(result);
@@ -82,11 +82,19 @@ const resolvers = {
 
       return { token, user };
     },
-    addMission: async (parent, { userid, missionInput }) => {
+    addMission: async (parent, { userId, missionInput }) => {
       const missionData = { destination: missionInput.destination, tripDuration: missionInput.tripDuration, departureDate: missionInput.departureDate }
       return User.findOneAndUpdate(
-        { _id: userid },
+        { _id: userId },
         { $push: { missions: missionData } },
+        { new: true }
+      )
+    },
+    createMission: async (parent, { destination, departureDate, crewSize, userId }) => {
+      // const missionData = { destination, departureDate, crewSize }
+      return User.findOneAndUpdate(
+        { _id: userId },
+        { $push: { missions: { destination, departureDate, crewSize } } },
         { new: true }
       )
     }

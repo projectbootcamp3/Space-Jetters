@@ -1,9 +1,10 @@
+import { useQuery } from "@apollo/client";
 import React from "react";
-
+// const {QUERY_MISSIONS} from ''
 import astronaultImg from "../assets/home-images/astronault.jpg"
 
 const Profile = () => {
-
+  // const { data } = useQuery({ query: QUERY_MISSIONS })
   return (
     <div className="profile-wrapper">
       <section className="profile flex-columns">

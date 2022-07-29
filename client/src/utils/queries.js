@@ -51,3 +51,13 @@ query Destinations {
   }
 }
 `
+
+export const QUERY_MISSIONS = gql`
+query Missions {
+  missions {
+    destination
+    distance
+    crewSize
+  }
+}
+`

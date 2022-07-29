@@ -5,17 +5,25 @@ const db = require('./config/connection');
 const stripe = require('stripe')('sk_test_Hrs6SAopgFPF0bZXSN3f6ELN');
 
 const { typeDefs, resolvers } = require('./schemas');
-const { authMiddleware } = require('./utils/auth');
+// const { authMiddleware } = require('./utils/auth');
 const PORT = process.env.PORT || 3001;
 
 const startServer = async () => {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
-    context: authMiddleware,
+    // context: authMiddleware,
+    cache: "bounded",
   });
+
   await server.start();
-  server.applyMiddleware({ app });
+
+  const corsOptions = { origin: ["https://space-jetters.herokuapp.com/", "https://studio.apollographql.com"] }
+
+  server.applyMiddleware({
+    app,
+    cors: corsOptions
+  });
   console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath} 🔭`);
 };
 
