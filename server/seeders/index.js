@@ -2,6 +2,7 @@ const MongoClient = require("mongodb").MongoClient;
 const rocketData = require('./rocket-seeds.json');
 const userData = require('./user-seeds.json');
 const destinationData = require('./destination-seeds.json')
+const missionData = require("./mission-seeds.json")
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
@@ -25,12 +26,14 @@ async function seedDB() {
         const rocketsCollection = db.collection("rockets");
         const destinationsCollection = db.collection("destinations");
         const usersCollection = db.collection("users");
+        const missionsCollection = db.collection("missions")
 
         // The drop() command destroys all data from a collection.
         // Make sure you run it against proper database and collection.
-        // rocketsCollection.drop();
-        // destinationsCollection.drop();
-        // usersCollection.drop();
+        rocketsCollection.drop();
+        destinationsCollection.drop();
+        usersCollection.drop();
+        missionsCollection.drop();
 
         await rocketsCollection.insertMany(rocketData);
         console.log("Rockets seeded! 🚀");
@@ -38,6 +41,8 @@ async function seedDB() {
         console.log("Destinations seeded! 🪐");
         await usersCollection.insertMany(userData);
         console.log("Users seeded! 🚻");
+        await missionsCollection.insertMany(missionData);
+        console.log("Missions seeded! 🚻");
 
         console.log("Database seeded! 🌱");
         client.close();
