@@ -17,75 +17,75 @@ const Signup = () => {
     });
   };
 
-const handleFormSubmit = async event => {
-  event.preventDefault();
+  const handleFormSubmit = async event => {
+    event.preventDefault();
 
-  try {
+    try {
 
-    const { data } = await addUser({
-      variables: { ...formState }
-    });
-  
-    Auth.login(data.addUser.token);
-  } catch (e) {
-    console.error(e);
-  }
-};
+      const { data } = await addUser({
+        variables: { ...formState }
+      });
+
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <main className="main login-wrapper hero_image"
-    style={{
-      backgroundImage: `url(${loginBg})`,
-      backgroundSize: "cover",
-      height: "100vh",
-      backgroundPosition: "center",
-    }}>
-      
-        <div className='login-container form-box'>
+      style={{
+        backgroundImage: `url(${loginBg})`,
+        backgroundSize: "cover",
+        height: "100vh",
+        backgroundPosition: "center",
+      }}>
+
+      <div className='login-container form-box'>
         <div className="login-form-wrapper">
 
-        <div className="subtitle-container">
-          <div className="line"></div>
-          <h2 className="sub-title">Sign up</h2>
-          <div className="line"></div>
-        </div>
-
-            <form onSubmit={handleFormSubmit} className="login-form">
-              <input
-                className='form-input'
-                placeholder='Your username'
-                name='username'
-                type='username'
-                id='username'
-                value={formState.username}
-                onChange={handleChange}
-              />
-              <input
-                className='form-input'
-                placeholder='Your email'
-                name='email'
-                type='email'
-                id='email'
-                value={formState.email}
-                onChange={handleChange}
-              />
-              <input
-                className='form-input'
-                placeholder='******'
-                name='password'
-                type='password'
-                id='password'
-                value={formState.password}
-                onChange={handleChange}
-              />
-              <button className='btn-login btn-3' type='submit'>
-                Sign Up
-              </button>
-            </form>
-            {error && <div>Sign up failed</div>}
+          <div className="subtitle-container">
+            <div className="line"></div>
+            <h2 className="sub-title">Sign up</h2>
+            <div className="line"></div>
           </div>
 
+          <form onSubmit={handleFormSubmit} className="login-form">
+            <input
+              className='form-input'
+              placeholder='Your username'
+              name='username'
+              type='username'
+              id='username'
+              value={formState.username}
+              onChange={handleChange}
+            />
+            <input
+              className='form-input'
+              placeholder='Your email'
+              name='email'
+              type='email'
+              id='email'
+              value={formState.email}
+              onChange={handleChange}
+            />
+            <input
+              className='form-input'
+              placeholder='******'
+              name='password'
+              type='password'
+              id='password'
+              value={formState.password}
+              onChange={handleChange}
+            />
+            <button className='btn-login btn-3' type='submit'>
+              Sign Up
+            </button>
+          </form>
+          {error && <div>Sign up failed</div>}
         </div>
+
+      </div>
     </main>
   );
 };

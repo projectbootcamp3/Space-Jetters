@@ -30,6 +30,7 @@ import Titan from "./pages/destinations/Titan";
 
 const httpLink = createHttpLink({
   uri: 'https://space-jetters.herokuapp.com/',
+  // uri: 'https://localhost:3001/',
 });
 
 const client = new ApolloClient({
