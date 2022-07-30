@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4cc7abed.css",
+    "main.js": "/static/js/main.d3eaab79.js",
+    "static/js/787.6ddcedb8.chunk.js": "/static/js/787.6ddcedb8.chunk.js",
+    "static/media/destination3.png": "/static/media/destination3.72a9c20c683ff3cf783d.png",
+    "static/media/destination5.png": "/static/media/destination5.a1400cb8a4ae806e0827.png",
+    "static/media/destination2.png": "/static/media/destination2.d277b8cec953e4dfa964.png",
+    "static/media/halfeuropa.png": "/static/media/halfeuropa.94296d249e99aa4530a1.png",
+    "static/media/section-d-img.jpg": "/static/media/section-d-img.1c591c93a3ce1c2aebea.jpg",
+    "static/media/destination4.png": "/static/media/destination4.f001e4be1f2cd08310eb.png",
+    "static/media/halfmars.png": "/static/media/halfmars.85b34d9750d71abea8fe.png",
+    "static/media/destination1.png": "/static/media/destination1.aa7cc667355dd5588527.png",
+    "static/media/halfmoon.png": "/static/media/halfmoon.fd074e63a3523deb8695.png",
+    "static/media/halfspacestation.png": "/static/media/halfspacestation.b0fdf8a2be76d3b26faa.png",
+    "static/media/halftitan.png": "/static/media/halftitan.26c1b21e9833dedab7da.png",
+    "static/media/testimonial-2.jpg": "/static/media/testimonial-2.6feb39e34bf6268878d7.jpg",
+    "static/media/testimonial-1.jpg": "/static/media/testimonial-1.d33424953eb98517ab14.jpg",
+    "static/media/rocket-4.jpg": "/static/media/rocket-4.36808d0fea99452e5641.jpg",
+    "static/media/astronault.jpg": "/static/media/astronault.04b58e1f5dcb9e008102.jpg",
+    "static/media/login-bg.jpg": "/static/media/login-bg.d6ec7a18de6d9822c843.jpg",
+    "static/media/rocket-2.jpg": "/static/media/rocket-2.9a70532582d1822243f0.jpg",
+    "static/media/rocket-3.jpg": "/static/media/rocket-3.03fab0bd96d9b3a4aeb0.jpg",
+    "static/media/testimonial-4.jpg": "/static/media/testimonial-4.27995690a73f73fc928b.jpg",
+    "static/media/rocket-1.jpg": "/static/media/rocket-1.7f9386f2494728502317.jpg",
+    "static/media/testimonial-3.jpg": "/static/media/testimonial-3.dcfea90133a6306039d0.jpg",
+    "static/media/space-station.jpg": "/static/media/space-station.7789cff4be42f9a58cbe.jpg",
+    "static/media/contactBg.jpg": "/static/media/contactBg.578c2444c8e2705e6192.jpg",
+    "static/media/guide.pdf": "/static/media/guide.9b267634a6e39a62463d.pdf",
+    "index.html": "/index.html",
+    "main.4cc7abed.css.map": "/static/css/main.4cc7abed.css.map",
+    "main.d3eaab79.js.map": "/static/js/main.d3eaab79.js.map",
+    "787.6ddcedb8.chunk.js.map": "/static/js/787.6ddcedb8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4cc7abed.css",
+    "static/js/main.d3eaab79.js"
+  ]
+}
