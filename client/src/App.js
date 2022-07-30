@@ -29,7 +29,7 @@ import SpaceStation from "./pages/destinations/SpaceStation";
 import Titan from "./pages/destinations/Titan";
 
 const httpLink = createHttpLink({
-  uri: 'https://space-jetters.herokuapp.com/',
+  uri: 'https://space-jetters.herokuapp.com/graphql',
   // uri: 'https://localhost:3001/',
 });
 
