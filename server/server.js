@@ -2,18 +2,24 @@ const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const db = require('./config/connection');
-const stripe = require('stripe')('sk_test_Hrs6SAopgFPF0bZXSN3f6ELN');
+//const stripe = require('stripe')('sk_test_Hrs6SAopgFPF0bZXSN3f6ELN');
 
 const { typeDefs, resolvers } = require('./schemas');
-const { authMiddleware } = require('./utils/auth');
+// const { authMiddleware } = require('./utils/auth');
 const PORT = process.env.PORT || 4000;
+
+const corsOptions = {
+  origin: ["https://space-jetters.herokuapp.com/", "https://studio.apollographql.com"]
+};
 
 const startServer = async () => {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
-    context: authMiddleware,
+    // context: authMiddleware,
+    cors: corsOptions
   });
+
   await server.start();
   server.applyMiddleware({ app });
 };
