@@ -29,8 +29,12 @@ import SpaceStation from "./pages/destinations/SpaceStation";
 import Titan from "./pages/destinations/Titan";
 
 const httpLink = createHttpLink({
+<<<<<<< HEAD
   uri: 'https://space-jetters.herokuapp.com/graphql',
   // uri: 'https://localhost:3001/',
+=======
+  uri: 'https://space-jetters.herokuapp.com/',
+>>>>>>> da83c3c1a616b6401f8b29b247f95e31142d2483
 });
 
 const client = new ApolloClient({
