@@ -1,10 +1,10 @@
 import React from "react";
 
 import {
-  ApolloProvider,
-  ApolloClient,
-  InMemoryCache,
-  createHttpLink,
+    ApolloProvider,
+    ApolloClient,
+    InMemoryCache,
+    createHttpLink,
 } from "@apollo/client";
 
 import Header from "./components/Header";
@@ -29,54 +29,50 @@ import SpaceStation from "./pages/destinations/SpaceStation";
 import Titan from "./pages/destinations/Titan";
 
 const httpLink = createHttpLink({
-<<<<<<< HEAD
-  uri: 'https://space-jetters.herokuapp.com/graphql',
-  // uri: 'https://localhost:3001/',
-=======
-  uri: 'https://space-jetters.herokuapp.com/',
->>>>>>> da83c3c1a616b6401f8b29b247f95e31142d2483
+    uri: 'https://space-jetters.herokuapp.com/graphql',
+    // uri: 'https://localhost:3001/',
 });
 
 const client = new ApolloClient({
-  link: httpLink,
-  cache: new InMemoryCache(),
+    link: httpLink,
+    cache: new InMemoryCache(),
 });
 
 function App() {
 
-  return (
-    <ApolloProvider client={client}>
-      <Router>
-        <div>
-          <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'}
-          />
-          <Header />
-          <div className="App hide" id="outer-container">
-          </div>
-          <div className="container">
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/destinations" component={Destinations} />
-              <Route exact path="/rockets" component={Rockets} />
-              <Route exact path="/contact" component={Contact} />
-              <Route exact path="/signup" component={Signup} />
-              <Route exact path="/profile/:username?" component={Profile} />
-              <Route path="/destinations/moon" component={Moon} />
-              <Route path="/destinations/mars" component={Mars} />
-              <Route path="/destinations/europa" component={Europa} />
-              <Route path="/destinations/titan" component={Titan} />
-              <Route path="/destinations/spacestation" component={SpaceStation} />
-              <Route path="/checkout" component={Checkout} />
-              <Route path="/nasaImages" component={Nasa} />
-              <Route component={NoMatch} />
-            </Switch>
-          </div>
-          <Footer />
-        </div>
-      </Router>
-    </ApolloProvider>
-  );
+    return (
+        <ApolloProvider client={client}>
+            <Router>
+                <div>
+                    <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'}
+                    />
+                    <Header />
+                    <div className="App hide" id="outer-container">
+                    </div>
+                    <div className="container">
+                        <Switch>
+                            <Route exact path="/" component={Home} />
+                            <Route exact path="/login" component={Login} />
+                            <Route exact path="/destinations" component={Destinations} />
+                            <Route exact path="/rockets" component={Rockets} />
+                            <Route exact path="/contact" component={Contact} />
+                            <Route exact path="/signup" component={Signup} />
+                            <Route exact path="/profile/:username?" component={Profile} />
+                            <Route path="/destinations/moon" component={Moon} />
+                            <Route path="/destinations/mars" component={Mars} />
+                            <Route path="/destinations/europa" component={Europa} />
+                            <Route path="/destinations/titan" component={Titan} />
+                            <Route path="/destinations/spacestation" component={SpaceStation} />
+                            <Route path="/checkout" component={Checkout} />
+                            <Route path="/nasaImages" component={Nasa} />
+                            <Route component={NoMatch} />
+                        </Switch>
+                    </div>
+                    <Footer />
+                </div>
+            </Router>
+        </ApolloProvider>
+    );
 }
 
 export default App;
