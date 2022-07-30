@@ -1,9 +1,9 @@
 import { slide as Menu } from 'react-burger-menu';
 import SideBarLinks from "../../components/SideLinks";
-import { React, useState} from 'react';
+import { React, useState } from 'react';
 
-export default props => {
- const [isOpen, setOpen] = useState(false)
+const Sidebar = props => {
+  const [isOpen, setOpen] = useState(false)
 
   const handleIsOpen = () => {
     setOpen(!isOpen)
@@ -12,15 +12,16 @@ export default props => {
   const closeSideBar = () => {
     setOpen(false)
   }
-       //const btnbutton = document.querySelector(".header-subcontainer")
-      // btnbutton.addEventListener("click", showSideBar)
+
   return (
     <Menu
-    isOpen={isOpen}
-    onOpen={handleIsOpen}
-    onClose={handleIsOpen}
+      isOpen={isOpen}
+      onOpen={handleIsOpen}
+      onClose={handleIsOpen}
     >
-     <SideBarLinks closeSideBar={closeSideBar} />
+      <SideBarLinks closeSideBar={closeSideBar} />
     </Menu>
   );
 };
+
+export default Sidebar;

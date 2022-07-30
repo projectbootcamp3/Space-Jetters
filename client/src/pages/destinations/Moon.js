@@ -5,15 +5,17 @@ import { Link } from "react-router-dom";
 const Moon = () => {
   const [crewSize, setCrewSize] = useState(0)
   const [date, setDate] = useState('');
-  const price = (crewSize * 1000);
+
   const handleChangeCrewSize = event => {
     setCrewSize(event.target.value);
     console.log('Crew size is:', event.target.value);
   };
+
   const handleChangeDate = event => {
     setDate(event.target.value)
     console.log('Desired departure date is:', event.target.value);
   }
+
   return (
     <div className="dest-page">
       <div className="title-box">

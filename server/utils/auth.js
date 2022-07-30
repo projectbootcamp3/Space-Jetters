@@ -3,19 +3,6 @@ const secret = 'secretpassword';
 const expiration = '3h';
 
 module.exports = {
-  // authenticateToken: function (req, res, next) {
-  //   const authHeader = req.headers['authorization'];
-  //   const token = authHeader && authHeader.split(' ').pop().trim();
-
-  //   if (token === null) return res.sendStatus(401)
-
-  //   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-  //     if (err) return res.sendStatus(403)
-  //     req.user = user
-  //     console.log('REQUESTED USER: ', req.user);
-  //     next();
-  //   })
-  // },
   authMiddleware: function ({ req }) {
     let token = req.body.token || req.query.token || req.headers.authorization;
 
